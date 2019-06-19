@@ -12,6 +12,10 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+summaries/
+models/
+*.log
+
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 

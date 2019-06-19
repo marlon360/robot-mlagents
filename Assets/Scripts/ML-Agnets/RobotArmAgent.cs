@@ -3,45 +3,91 @@ using System.Collections.Generic;
 using MLAgents;
 using UnityEngine;
 
+enum RobotBrainType {
+    PickupBrain,
+    DropBrain
+}
+
 [RequireComponent (typeof (RobotArm))]
 public class RobotArmAgent : Agent {
 
-    public Transform sensor;
+    public Brain PickupBrain;
+    public Brain DropBrain;
+
+    public bool DoneOnTouchingTarget = true;
+
+    private RobotBrainType currentBrainType;
+
+    private Transform target;
+    private Transform container;
 
     private RobotArm robotArm;
     private RobotArmArena arena;
-    private RayPerception3D rayPer;
+
+    private bool HeldAlready = false;
+
+    private int brainConfig = -1;
+
+    private void Start () {
+        brainConfig = 1;
+    }
 
     public override void InitializeAgent () {
+        brainConfig = 1;
+
         robotArm = GetComponent<RobotArm> ();
         arena = GetComponentInParent<RobotArmArena> ();
-        rayPer = GetComponent<RayPerception3D>();
+
+        robotArm.OnHoldingObject = () => {
+            HeldAlready = true;
+            if (DoneOnTouchingTarget) {
+                AddReward (4f);
+                Debug.Log ("Success with: " + GetCumulativeReward ());
+                Done ();
+            } else {
+                brainConfig = 2;
+                robotArm.holdingObject.GetComponent<TargetCollision> ().OnGroundCollision = () => {
+                    if (!robotArm.IsHoldingObject () && HeldAlready) {
+                        AddReward (-1f);
+                        //GiveBrain (PickupBrain);
+                        //Debug.Log(GetCumulativeReward());
+                        Done ();
+                    }
+                };
+            }
+        };
+
+        
+
+        robotArm.OnCollisionWithContainer = () => {
+            AddReward (-1f / agentParameters.maxStep * 20f);
+        };
+
+    }
+
+    private void SetupEvents() {
         arena.container.OnGoalStay = () => {
-            if (!arena.Goal.GetComponent<Rigidbody>().isKinematic) {
+            if (!robotArm.IsHoldingObject ()) {
                 AddReward (2f);
-                Done();
+                Debug.Log ("Success with: " + GetCumulativeReward ());
+                arena.container.OnGoalStay = null;
+                Done ();
             }
         };
     }
 
-    public void ReleaseGoal() {
-        arena.Goal.transform.parent = arena.transform;
-        arena.Goal.GetComponent<Rigidbody>().isKinematic = false;
-
-        RaycastHit hit;
-        if (Physics.Raycast(arena.Goal.transform.position, Vector3.up * -1f, out hit, 6f)) {
-            if (!hit.collider.gameObject.CompareTag("Container")) {
-                AddReward(-1f);
-            }
+    public new void GiveBrain (Brain brain) {
+        base.GiveBrain (brain);
+        if (brain == PickupBrain) {
+            currentBrainType = RobotBrainType.PickupBrain;
         } else {
-            AddReward(-1f);
+            currentBrainType = RobotBrainType.DropBrain;
         }
-
     }
 
     public override void CollectObservations () {
 
-        AddVectorObs(arena.Goal.transform.position - transform.position);
+        AddVectorObs (target.transform.position - transform.position);
         // 3
 
         AddVectorObs (robotArm.Root.localEulerAngles.y);
@@ -50,35 +96,56 @@ public class RobotArmAgent : Agent {
         AddVectorObs (robotArm.Wrist.localEulerAngles.z);
         // 4
 
-        //AddVectorObs (Perceive (sensor, 5f, new float[] {-10f, 0f, 10f }, new string[] { "Goal" }));
-        // 27
-
-        float rayDistance = 5f;
-        float[] rayAngles = { 10f, 20f, 30f, 40f, 50f, 60f, 70f, 80f, 90f, 110f, 110f, 120f, 130f, 140f, 150f, 160f, 170f, 180f, 190f, 200f, 210, 220, 230,240,250,260,270,280,290,300,310,320,330,340,350,360 };
-        string[] detectableObjects = { "Goal" };
-        //AddVectorObs (rayPer.Perceive (rayDistance, rayAngles, detectableObjects, 0.01f, 0.01f)); //108
-        
-
         AddVectorObs (robotArm.Wrist.position - transform.position);
         // 3
-        //AddVectorObs (arena.container.transform.position - transform.position);
-        // 3
 
-        //AddVectorObs(arena.Goal.GetComponent<Rigidbody>().isKinematic);
+        AddVectorObs (arena.ground.position.y);
         // 1
 
-        if (!arena.Goal.GetComponent<Rigidbody>().isKinematic) {
-            SetActionMask(4, 1);
+        if (currentBrainType == RobotBrainType.DropBrain) {
+            AddVectorObs (arena.container.transform.position - transform.position);
+        }
+        // 3
+
+        if (!robotArm.IsHoldingObject ()) {
+            SetActionMask (4, 1);
         }
 
     }
 
-    private void FixedUpdate() {
-        if (arena.Goal.GetComponent<Rigidbody>().isKinematic) {
-            //AddReward(1f / agentParameters.maxStep * 0.5f);
-            AddReward(2f);
-            Done();
+    private void FixedUpdate () {
+        if (robotArm.Hand.transform.position.y < arena.ground.position.y) {
+            AddReward (-1f / agentParameters.maxStep * 5f);
         }
+        if (robotArm.Wrist.transform.position.y < arena.ground.position.y) {
+            AddReward (-1f / agentParameters.maxStep * 5f);
+        }
+        if (robotArm.SecArm.transform.position.y < arena.ground.position.y) {
+            AddReward (-1f / agentParameters.maxStep * 5f);
+        }
+        if (robotArm.FirstArm.transform.position.y < arena.ground.position.y) {
+            AddReward (-1f / agentParameters.maxStep * 5f);
+        }
+
+        if (robotArm.IsHoldingObject ()) {
+            RaycastHit hit;
+            if (Physics.SphereCast(target.position, 0.1f, -Vector3.up, out hit, 5f)) {
+                if (hit.collider.gameObject.CompareTag("Container") && hit.distance > 1f) {
+                    robotArm.ReleaseObject();
+                }
+            }
+            Debug.DrawRay(target.position, -Vector3.up * 5f);
+        }
+
+        if (brainConfig != -1) {
+            if (brainConfig == 1) {
+                GiveBrain(PickupBrain);
+            } else {
+                GiveBrain(DropBrain);
+            }
+            brainConfig = -1;
+        }
+
     }
 
     public override void AgentAction (float[] vectorAction, string textAction) {
@@ -90,43 +157,45 @@ public class RobotArmAgent : Agent {
         robotArm.RotateSecArm (ConvertAction (vectorAction[2]));
         robotArm.RotateWrist (ConvertAction (vectorAction[3]));
 
-        // if (vectorAction[4] == 1) {
-        //     ReleaseGoal();
+        // if (robotArm.IsHoldingObject ()) {
+        //     if (vectorAction[4] == 1) {
+        //         robotArm.ReleaseObject ();
+        //     } else {
+        //         AddReward(1f / agentParameters.maxStep * 5f);
+        //     }
         // }
 
-        // if (robotArm.Wrist.position.y < 0f) {
-        //     AddReward (-0.1f);
-        // }
+        if (target != null && currentBrainType == RobotBrainType.PickupBrain) {
+            float distance = Vector3.Distance (robotArm.Hand.transform.position, target.position);
+            if (distance > 0.1) {
+                float reward = -1f / agentParameters.maxStep * distance;
+                AddReward (Mathf.Clamp (reward, -0.1f, 0f));
+            }
+        }
 
-        //AddReward(Mathf.Clamp(3f / Mathf.Abs(Vector3.Distance(robotArm.Wrist.position, arena.Goal.transform.position)) / 10000f, 0f, 0.1f));
-
-        // float maxDistance =  Mathf.Abs(Vector3.Distance(transform.position + new Vector3(0,3.5f,0), arena.Goal.transform.position));
-        // float currentDistance =  Mathf.Abs(Vector3.Distance(robotArm.Wrist.position, arena.Goal.transform.position));
-
-        // float percentage = currentDistance / maxDistance;
-        // float thresholdPercentage = 0.1f;
-
-        // if (percentage < thresholdPercentage) {
-        //     AddReward (1f / agentParameters.maxStep);
-        // } else {
-        //     AddReward (-1f / agentParameters.maxStep * percentage);
-        // }
-
-        // float dot = Vector3.Dot(robotArm.Root.right,Vector3.Normalize(robotArm.Root.position - arena.Goal.transform.position));
-        // dot = Mathf.Abs(dot);
-        // float thresholdDot = 0.9f;
-        // if (dot > thresholdDot) {
-        //     AddReward (1f / agentParameters.maxStep);
-        // } else {
-        //     AddReward (-1f / agentParameters.maxStep * (dot - thresholdDot));
-        // }
+        if (currentBrainType == RobotBrainType.DropBrain) {
+            if (robotArm.Hand.position.y < arena.container.transform.localScale.y) {
+                AddReward (-1f / agentParameters.maxStep * 10f);
+            }
+        }
 
     }
 
     public override void AgentReset () {
+        HeldAlready = false;
         arena.Reset ();
         robotArm.Reset ();
+        SetupEvents();
         transform.localPosition = Vector3.zero;
+        brainConfig = 1;
+    }
+
+    public void SetTarget (Transform target) {
+        this.target = target;
+    }
+
+    public void SetContainer (Transform container) {
+        this.container = container;
     }
 
     private float ConvertAction (float action) {
@@ -135,41 +204,6 @@ public class RobotArmAgent : Agent {
         } else {
             return action;
         }
-    }
-
-    private List<float> Perceive (Transform sensor, float rayDistance,
-        float[] rayAngles, string[] detectableObjects) {
-        List<float> perceptionBuffer = new List<float> ();
-
-        perceptionBuffer.Clear ();
-        // For each ray sublist stores categorical information on detected object
-        // along with object distance.
-        foreach (float angleX in rayAngles) {
-            foreach (float angleY in rayAngles) {
-                if (Application.isEditor) {
-                    Debug.DrawRay (sensor.position, Quaternion.AngleAxis (angleX, sensor.forward) * Quaternion.AngleAxis (angleY, sensor.up) * sensor.right * -1f * rayDistance, Color.black, 0.01f, true);
-                }
-
-                RaycastHit hit;
-
-                float[] subList = new float[detectableObjects.Length + 2];
-                if (Physics.SphereCast (transform.position, 0.5f, Quaternion.AngleAxis (-45, sensor.up) * sensor.right, out hit, rayDistance)) {
-                    for (int i = 0; i < detectableObjects.Length; i++) {
-                        if (hit.collider.gameObject.CompareTag (detectableObjects[i])) {
-                            subList[i] = 1;
-                            subList[detectableObjects.Length + 1] = hit.distance / rayDistance;
-                            break;
-                        }
-                    }
-                } else {
-                    subList[detectableObjects.Length] = 1f;
-                }
-
-                perceptionBuffer.AddRange (subList);
-            }
-        }
-
-        return perceptionBuffer;
     }
 
 }

@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobotHand : MonoBehaviour
-{
+public class RobotHand : MonoBehaviour {
 
-    private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.CompareTag("Goal")) {
-            other.gameObject.transform.parent = transform;
-            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+    RobotArm robotArm;
+
+    private void Start () {
+        robotArm = GetComponentInParent<RobotArm> ();
+    }
+
+    private void OnCollisionEnter (Collision other) {
+        if (other.gameObject.CompareTag ("Target")) {
+            robotArm.HoldObject (other.gameObject);
+        }
+        if (other.gameObject.CompareTag ("Container")) {
+            if (robotArm.OnCollisionWithContainer != null) robotArm.OnCollisionWithContainer.Invoke();
         }
     }
 }
