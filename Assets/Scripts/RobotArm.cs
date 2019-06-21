@@ -22,18 +22,24 @@ public class RobotArm : MonoBehaviour {
 
     public Action OnReleasingObject;
 
-    public Action OnCollisionWithContainer;
+    public Action<Collision> OnCollision;
 
-    private Vector3 RootRotationStart;
-    private Vector3 FirstArmRotationStart;
-    private Vector3 SecArmRotationStart;
+    private Vector3 BaseRotationStart;
+    private Vector3 ShoulderRotationStart;
+    private Vector3 ElbowRotationStart;
     private Vector3 WristRotationStart;
+
+    private Vector3 LastShoulderRotation;
+    private Vector3 LastElbowRotation;
+    private Vector3 LastWristRotation;
+
+    private Boolean isColliding = false;
 
     // Start is called before the first frame update
     void Start () {
-        RootRotationStart = Base.localRotation.eulerAngles;
-        FirstArmRotationStart = Shoulder.localRotation.eulerAngles;
-        SecArmRotationStart = Elbow.localRotation.eulerAngles;
+        BaseRotationStart = Base.localRotation.eulerAngles;
+        ShoulderRotationStart = Shoulder.localRotation.eulerAngles;
+        ElbowRotationStart = Elbow.localRotation.eulerAngles;
         WristRotationStart = Wrist.localRotation.eulerAngles;
 
         Reset ();
@@ -83,7 +89,7 @@ public class RobotArm : MonoBehaviour {
     public void HoldObject (GameObject target) {
         if (holdingTimer > 100) {
             holdingObject = target;
-            holdingObject.GetComponent<Rigidbody> ().Sleep();
+            holdingObject.GetComponent<Rigidbody> ().Sleep ();
             holdingObjectParent = target.transform.parent;
             holdingObject.transform.parent = Hand.transform;
             holdingObject.GetComponent<Rigidbody> ().isKinematic = true;
@@ -93,12 +99,12 @@ public class RobotArm : MonoBehaviour {
     public void ReleaseObject () {
         if (holdingObject != null) {
             holdingTimer = 0;
-            holdingObject.GetComponent<Rigidbody> ().Sleep();
+            holdingObject.GetComponent<Rigidbody> ().Sleep ();
             holdingObject.transform.parent = holdingObjectParent;
             holdingObject.GetComponent<Rigidbody> ().isKinematic = false;
             holdingObject = null;
             holdingObjectParent = null;
-            if (OnReleasingObject != null) OnReleasingObject.Invoke();
+            if (OnReleasingObject != null) OnReleasingObject.Invoke ();
         }
     }
 
@@ -115,6 +121,23 @@ public class RobotArm : MonoBehaviour {
         //FirstArm.localRotation = Quaternion.Lerp (FirstArm.localRotation, FirstArmRotation, speed * Time.fixedDeltaTime);
         //SecArm.localRotation = Quaternion.Lerp (SecArm.localRotation, SecArmRotation, speed * Time.fixedDeltaTime);
         //Wrist.localRotation = Quaternion.Lerp (Wrist.localRotation, WristRotation, speed * Time.fixedDeltaTime);
+
+        if (Wrist.localEulerAngles.z > 75f && Wrist.localEulerAngles.z < 205f) {
+            Wrist.localEulerAngles = LastWristRotation;
+        }
+        LastWristRotation = Wrist.localEulerAngles;
+
+        if (Elbow.localEulerAngles.z > 40f && Elbow.localEulerAngles.z < 70f) {
+            Elbow.localEulerAngles = LastElbowRotation;
+            Elbow.gameObject.GetComponent<Rigidbody> ().Sleep ();
+        }
+        LastElbowRotation = Elbow.localEulerAngles;
+
+        if (Shoulder.localEulerAngles.z > 130f && Shoulder.localEulerAngles.z < 270f) {
+            Shoulder.localEulerAngles = LastShoulderRotation;
+            Shoulder.gameObject.GetComponent<Rigidbody> ().Sleep ();
+        }
+        LastShoulderRotation = Shoulder.localEulerAngles;
 
     }
 

@@ -57,10 +57,10 @@ public class RobotArmAgent : Agent {
             }
         };
 
-        
-
-        robotArm.OnCollisionWithContainer = () => {
-            AddReward (-1f / agentParameters.maxStep * 20f);
+        robotArm.OnCollision = (Collision other) => {
+            if (!other.gameObject.CompareTag("Target")) {
+                AddReward (-0.1f);
+            }
         };
 
     }
@@ -174,7 +174,7 @@ public class RobotArmAgent : Agent {
         }
 
         if (currentBrainType == RobotBrainType.DropBrain) {
-            if (robotArm.Hand.position.y < arena.container.transform.localScale.y) {
+            if (robotArm.Hand.position.y < arena.container.transform.position.y + arena.container.transform.localScale.y) {
                 AddReward (-1f / agentParameters.maxStep * 10f);
             }
         }
