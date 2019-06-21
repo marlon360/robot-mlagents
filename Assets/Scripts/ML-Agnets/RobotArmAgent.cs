@@ -90,9 +90,9 @@ public class RobotArmAgent : Agent {
         AddVectorObs (target.transform.position - transform.position);
         // 3
 
-        AddVectorObs (robotArm.Root.localEulerAngles.y);
-        AddVectorObs (robotArm.FirstArm.localEulerAngles.z);
-        AddVectorObs (robotArm.SecArm.localEulerAngles.z);
+        AddVectorObs (robotArm.Base.localEulerAngles.y);
+        AddVectorObs (robotArm.Shoulder.localEulerAngles.z);
+        AddVectorObs (robotArm.Elbow.localEulerAngles.z);
         AddVectorObs (robotArm.Wrist.localEulerAngles.z);
         // 4
 
@@ -120,10 +120,10 @@ public class RobotArmAgent : Agent {
         if (robotArm.Wrist.transform.position.y < arena.ground.position.y) {
             AddReward (-1f / agentParameters.maxStep * 5f);
         }
-        if (robotArm.SecArm.transform.position.y < arena.ground.position.y) {
+        if (robotArm.Elbow.transform.position.y < arena.ground.position.y) {
             AddReward (-1f / agentParameters.maxStep * 5f);
         }
-        if (robotArm.FirstArm.transform.position.y < arena.ground.position.y) {
+        if (robotArm.Shoulder.transform.position.y < arena.ground.position.y) {
             AddReward (-1f / agentParameters.maxStep * 5f);
         }
 
@@ -152,9 +152,9 @@ public class RobotArmAgent : Agent {
 
         AddReward (-1f / agentParameters.maxStep);
 
-        robotArm.RotateRoot (ConvertAction (vectorAction[0]));
-        robotArm.RotateFirstArm (ConvertAction (vectorAction[1]));
-        robotArm.RotateSecArm (ConvertAction (vectorAction[2]));
+        robotArm.RotateBase (ConvertAction (vectorAction[0]));
+        robotArm.RotateShoulder (ConvertAction (vectorAction[1]));
+        robotArm.RotateElbow (ConvertAction (vectorAction[2]));
         robotArm.RotateWrist (ConvertAction (vectorAction[3]));
 
         // if (robotArm.IsHoldingObject ()) {
@@ -186,7 +186,7 @@ public class RobotArmAgent : Agent {
         arena.Reset ();
         robotArm.Reset ();
         SetupEvents();
-        transform.localPosition = Vector3.zero;
+        //transform.localPosition = Vector3.zero;
         brainConfig = 1;
     }
 

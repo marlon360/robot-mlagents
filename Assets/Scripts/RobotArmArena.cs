@@ -28,10 +28,10 @@ public class RobotArmArena : MonoBehaviour
         float y = radius * Mathf.Sin(t);
 
         Goal.transform.position = new Vector3 (
-            x,
-            Goal.transform.localScale.y,
-            y
-        ) + transform.position;
+            x + agent.transform.position.x,
+            Goal.transform.localScale.y + transform.position.y,
+            y + agent.transform.position.z
+        );
 
         Goal.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Goal.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;

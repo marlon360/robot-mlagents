@@ -15,22 +15,22 @@ public class RobotArmController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (Input.GetKey (KeyCode.M)) {
-            robotArm.RotateRoot ();
+            robotArm.RotateBase ();
         }
         if (Input.GetKey (KeyCode.N)) {
-            robotArm.RotateRoot (-1f);
+            robotArm.RotateBase (-1f);
         }
         if (Input.GetKey (KeyCode.K)) {
-            robotArm.RotateFirstArm ();
+            robotArm.RotateShoulder ();
         }
         if (Input.GetKey (KeyCode.J)) {
-            robotArm.RotateFirstArm (-1f);
+            robotArm.RotateShoulder (-1f);
         }
         if (Input.GetKey (KeyCode.I)) {
-            robotArm.RotateSecArm ();
+            robotArm.RotateElbow ();
         }
         if (Input.GetKey (KeyCode.U)) {
-            robotArm.RotateSecArm (-1f);
+            robotArm.RotateElbow (-1f);
         }
         if (Input.GetKey (KeyCode.Alpha9)) {
             robotArm.RotateWrist ();

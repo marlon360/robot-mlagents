@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class RobotArm : MonoBehaviour {
 
-    public Transform Root;
-    public Transform FirstArm;
-    public Transform SecArm;
+    public Transform Base;
+    public Transform Shoulder;
+    public Transform Elbow;
     public Transform Wrist;
     public Transform Hand;
 
@@ -31,9 +31,9 @@ public class RobotArm : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start () {
-        RootRotationStart = Root.localRotation.eulerAngles;
-        FirstArmRotationStart = FirstArm.localRotation.eulerAngles;
-        SecArmRotationStart = SecArm.localRotation.eulerAngles;
+        RootRotationStart = Base.localRotation.eulerAngles;
+        FirstArmRotationStart = Shoulder.localRotation.eulerAngles;
+        SecArmRotationStart = Elbow.localRotation.eulerAngles;
         WristRotationStart = Wrist.localRotation.eulerAngles;
 
         Reset ();
@@ -54,12 +54,12 @@ public class RobotArm : MonoBehaviour {
         rotation.eulerAngles = eulerAngles;
     }
 
-    public void RotateRoot (float value = 1f) {
+    public void RotateBase (float value = 1f) {
         //Rotate (ref RootRotation, transform.up, value);
-        Root.gameObject.GetComponent<Rigidbody> ().AddTorque (Root.up * 2f * value);
+        Base.gameObject.GetComponent<Rigidbody> ().AddTorque (Base.up * 2f * value);
     }
     // 359 - 12  1 - 12  359 - 372
-    public void RotateFirstArm (float value = 1f) {
+    public void RotateShoulder (float value = 1f) {
         // Vector3 eulerAngles = FirstArmRotation.eulerAngles;
         // eulerAngles = eulerAngles + transform.forward * value;
         // float difference1 = Mathf.Abs (eulerAngles.z - (FirstArmRotationStart.z + 360f));
@@ -68,12 +68,12 @@ public class RobotArm : MonoBehaviour {
         // if (difference < 90f) {
         //     FirstArmRotation.eulerAngles = eulerAngles;
         // }
-        FirstArm.gameObject.GetComponent<Rigidbody> ().AddTorque (FirstArm.forward * 2f * value);
+        Shoulder.gameObject.GetComponent<Rigidbody> ().AddTorque (Shoulder.forward * 2f * value);
         //Rotate (ref FirstArmRotation, transform.forward, value);
     }
-    public void RotateSecArm (float value = 1f) {
+    public void RotateElbow (float value = 1f) {
         //Rotate (ref SecArmRotation, transform.forward, value);
-        SecArm.gameObject.GetComponent<Rigidbody> ().AddTorque (SecArm.forward * 2f * value);
+        Elbow.gameObject.GetComponent<Rigidbody> ().AddTorque (Elbow.forward * 2f * value);
     }
     public void RotateWrist (float value = 1f) {
         //Rotate (ref WristRotation, transform.forward, value);
