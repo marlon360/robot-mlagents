@@ -13,7 +13,7 @@
 /[Mm]emoryCaptures/
 
 summaries/
-models/
+/models/
 *.log
 
 # Never ignore Asset meta data
