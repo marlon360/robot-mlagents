@@ -42,16 +42,33 @@ public class RobotArm : MonoBehaviour {
         ElbowRotationStart = Elbow.localRotation.eulerAngles;
         WristRotationStart = Wrist.localRotation.eulerAngles;
 
+        Vector3 com = new Vector3(0,2f,0);
+        Base.GetComponent<Rigidbody>().centerOfMass = new Vector3(0,0f,0);
+        Shoulder.GetComponent<Rigidbody>().centerOfMass = new Vector3(0,2f,0);
+        Elbow.GetComponent<Rigidbody>().centerOfMass = new Vector3(0,2.6f,0);
+        Wrist.GetComponent<Rigidbody>().centerOfMass = new Vector3(0,0.2f,0);
+
         Reset ();
     }
 
+
     [ContextMenu ("Reset Rot")]
     public void Reset () {
-        // Root.localEulerAngles = RootRotationStart;
-        // FirstArm.localEulerAngles = FirstArmRotationStart;
-        // SecArm.localEulerAngles = SecArmRotationStart;
-        // Wrist.localEulerAngles = WristRotationStart;
         holdingTimer = 101;
+    }
+
+    public void StartRotation() {
+        Base.localEulerAngles = BaseRotationStart;
+        Shoulder.localEulerAngles = ShoulderRotationStart;
+        Elbow.localEulerAngles = ElbowRotationStart;
+        Wrist.localEulerAngles = WristRotationStart;
+    }
+
+    public void RandomRotation() {
+        Base.localEulerAngles = new Vector3(0f, UnityEngine.Random.Range(0f, 360f), 0f);
+        Shoulder.localEulerAngles = new Vector3(0f, 0f, UnityEngine.Random.Range(-30f, 30f));
+        Elbow.localEulerAngles = new Vector3(0f, 0f, UnityEngine.Random.Range(90f, 350f));
+        Wrist.localEulerAngles = new Vector3(0f, 0f, UnityEngine.Random.Range(-140f, 60f));
     }
 
     public void Rotate (ref Quaternion rotation, Vector3 axis, float value) {
@@ -62,7 +79,7 @@ public class RobotArm : MonoBehaviour {
 
     public void RotateBase (float value = 1f) {
         //Rotate (ref RootRotation, transform.up, value);
-        Base.gameObject.GetComponent<Rigidbody> ().AddTorque (Base.up * 2f * value);
+        Base.gameObject.GetComponent<Rigidbody> ().AddTorque (Base.up * 18f * value);
     }
     // 359 - 12  1 - 12  359 - 372
     public void RotateShoulder (float value = 1f) {
@@ -74,16 +91,16 @@ public class RobotArm : MonoBehaviour {
         // if (difference < 90f) {
         //     FirstArmRotation.eulerAngles = eulerAngles;
         // }
-        Shoulder.gameObject.GetComponent<Rigidbody> ().AddTorque (Shoulder.forward * 2f * value);
+        Shoulder.gameObject.GetComponent<Rigidbody> ().AddTorque (Shoulder.forward * 13f * value);
         //Rotate (ref FirstArmRotation, transform.forward, value);
     }
     public void RotateElbow (float value = 1f) {
         //Rotate (ref SecArmRotation, transform.forward, value);
-        Elbow.gameObject.GetComponent<Rigidbody> ().AddTorque (Elbow.forward * 2f * value);
+        Elbow.gameObject.GetComponent<Rigidbody> ().AddTorque (Elbow.forward * 18f * value);
     }
     public void RotateWrist (float value = 1f) {
         //Rotate (ref WristRotation, transform.forward, value);
-        Wrist.gameObject.GetComponent<Rigidbody> ().AddTorque (Wrist.forward * 2f * value);
+        Wrist.gameObject.GetComponent<Rigidbody> ().AddTorque (Wrist.forward * 3f * value);
     }
 
     public void HoldObject (GameObject target) {
@@ -114,6 +131,7 @@ public class RobotArm : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate () {
+
         if (holdingTimer <= 100) {
             holdingTimer++;
         }
@@ -128,14 +146,14 @@ public class RobotArm : MonoBehaviour {
         LastWristRotation = Wrist.localEulerAngles;
 
         if (Elbow.localEulerAngles.z > 40f && Elbow.localEulerAngles.z < 70f) {
-            Elbow.localEulerAngles = LastElbowRotation;
             Elbow.gameObject.GetComponent<Rigidbody> ().Sleep ();
+            Elbow.localEulerAngles = LastElbowRotation;
         }
         LastElbowRotation = Elbow.localEulerAngles;
 
         if (Shoulder.localEulerAngles.z > 130f && Shoulder.localEulerAngles.z < 270f) {
-            Shoulder.localEulerAngles = LastShoulderRotation;
             Shoulder.gameObject.GetComponent<Rigidbody> ().Sleep ();
+            Shoulder.localEulerAngles = LastShoulderRotation;
         }
         LastShoulderRotation = Shoulder.localEulerAngles;
 

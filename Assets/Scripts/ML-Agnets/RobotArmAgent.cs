@@ -58,14 +58,14 @@ public class RobotArmAgent : Agent {
         };
 
         robotArm.OnCollision = (Collision other) => {
-            if (!other.gameObject.CompareTag("Target")) {
-                AddReward (-0.1f);
+            if (!other.gameObject.CompareTag ("Target")) {
+                AddReward (-0.04f);
             }
         };
 
     }
 
-    private void SetupEvents() {
+    private void SetupEvents () {
         arena.container.OnGoalStay = () => {
             if (!robotArm.IsHoldingObject ()) {
                 AddReward (2f);
@@ -129,19 +129,19 @@ public class RobotArmAgent : Agent {
 
         if (robotArm.IsHoldingObject ()) {
             RaycastHit hit;
-            if (Physics.SphereCast(target.position, 0.1f, -Vector3.up, out hit, 5f)) {
-                if (hit.collider.gameObject.CompareTag("Container") && hit.distance > 1f) {
-                    robotArm.ReleaseObject();
+            if (Physics.SphereCast (target.position, 0.1f, -Vector3.up, out hit, 5f)) {
+                if (hit.collider.gameObject.CompareTag ("Container")) {
+                    robotArm.ReleaseObject ();
                 }
             }
-            Debug.DrawRay(target.position, -Vector3.up * 5f);
+            Debug.DrawRay (target.position, -Vector3.up * 5f);
         }
 
         if (brainConfig != -1) {
             if (brainConfig == 1) {
-                GiveBrain(PickupBrain);
+                GiveBrain (PickupBrain);
             } else {
-                GiveBrain(DropBrain);
+                GiveBrain (DropBrain);
             }
             brainConfig = -1;
         }
@@ -173,11 +173,11 @@ public class RobotArmAgent : Agent {
             }
         }
 
-        if (currentBrainType == RobotBrainType.DropBrain) {
-            if (robotArm.Hand.position.y < arena.container.transform.position.y + arena.container.transform.localScale.y) {
-                AddReward (-1f / agentParameters.maxStep * 10f);
-            }
-        }
+        // if (currentBrainType == RobotBrainType.DropBrain) {
+        //     if (robotArm.Hand.position.y < arena.container.transform.position.y + arena.container.transform.localScale.y) {
+        //         AddReward (-1f / agentParameters.maxStep * 10f);
+        //     }
+        // }
 
     }
 
@@ -185,7 +185,8 @@ public class RobotArmAgent : Agent {
         HeldAlready = false;
         arena.Reset ();
         robotArm.Reset ();
-        SetupEvents();
+        robotArm.RandomRotation ();
+        SetupEvents ();
         //transform.localPosition = Vector3.zero;
         brainConfig = 1;
     }
