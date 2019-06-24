@@ -222,6 +222,14 @@ public class RobotArmAgent : Agent {
         brainConfig = 1;
     }
 
+    public Transform GetTarget () {
+        return this.target;
+    }
+
+    public bool HasTarget () {
+        return this.target != null;
+    }
+
     private float ConvertAction (float action) {
         if (action == 2f) {
             return -1f;
