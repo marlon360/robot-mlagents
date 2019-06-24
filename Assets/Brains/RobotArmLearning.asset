@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RobotArmLearning
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 11
+    vectorObservationSize: 10
     numStackedVectorObservations: 1
     vectorActionSize: 0300000003000000030000000300000002000000
     cameraResolutions: []
@@ -24,5 +24,5 @@ MonoBehaviour:
     - 
     - 
     vectorActionSpaceType: 0
-  model: {fileID: 11400000, guid: 67904f06e69f345fcbd695caa2723869, type: 3}
+  model: {fileID: 0}
   inferenceDevice: 0

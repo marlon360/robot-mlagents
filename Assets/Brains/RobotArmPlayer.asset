@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RobotArmPlayer
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 11
+    vectorObservationSize: 10
     numStackedVectorObservations: 1
     vectorActionSize: 0300000003000000030000000300000002000000
     cameraResolutions: []

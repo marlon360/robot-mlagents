@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DropPlayer
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 14
+    vectorObservationSize: 10
     numStackedVectorObservations: 1
     vectorActionSize: 0300000003000000030000000300000002000000
     cameraResolutions: []

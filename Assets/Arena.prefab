@@ -463,6 +463,18 @@ PrefabInstance:
       propertyPath: DoneOnTouchingTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1834565396399576656, guid: 90b88a32add9c474ca63471610800931,
+        type: 3}
+      propertyPath: DropBrain
+      value: 
+      objectReference: {fileID: 11400000, guid: 490f866c5bd89428b81974e0ed118544,
+        type: 2}
+    - target: {fileID: 1834565396399576656, guid: 90b88a32add9c474ca63471610800931,
+        type: 3}
+      propertyPath: NoTargetBrain
+      value: 
+      objectReference: {fileID: 11400000, guid: 037302d5435c24f60927a12768951e5b,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90b88a32add9c474ca63471610800931, type: 3}
 --- !u!4 &6129856825755232818 stripped
