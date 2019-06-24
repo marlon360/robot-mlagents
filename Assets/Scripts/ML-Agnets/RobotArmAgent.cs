@@ -5,7 +5,8 @@ using UnityEngine;
 
 enum RobotBrainType {
     PickupBrain,
-    DropBrain
+    DropBrain,
+    NoTargetBrain
 }
 
 [RequireComponent (typeof (RobotArm))]
@@ -13,15 +14,17 @@ public class RobotArmAgent : Agent {
 
     public Brain PickupBrain;
     public Brain DropBrain;
+    public Brain NoTargetBrain;
 
+    public Container container;
     public bool DoneOnTouchingTarget = true;
 
     private RobotBrainType currentBrainType;
 
     private Transform target;
-    private Transform container;
 
     private RobotArm robotArm;
+    public WheelVehicle vehicle;
     private RobotArmArena arena;
 
     private bool HeldAlready = false;
@@ -34,26 +37,29 @@ public class RobotArmAgent : Agent {
 
     public override void InitializeAgent () {
         brainConfig = 1;
+        SetupEvents();
 
         robotArm = GetComponent<RobotArm> ();
         arena = GetComponentInParent<RobotArmArena> ();
 
         robotArm.OnHoldingObject = () => {
-            HeldAlready = true;
-            if (DoneOnTouchingTarget) {
-                AddReward (4f);
-                Debug.Log ("Success with: " + GetCumulativeReward ());
-                Done ();
-            } else {
-                brainConfig = 2;
-                robotArm.holdingObject.GetComponent<TargetCollision> ().OnGroundCollision = () => {
-                    if (!robotArm.IsHoldingObject () && HeldAlready) {
-                        AddReward (-1f);
-                        //GiveBrain (PickupBrain);
-                        //Debug.Log(GetCumulativeReward());
-                        Done ();
-                    }
-                };
+            if (brain != NoTargetBrain) {
+                HeldAlready = true;
+                if (DoneOnTouchingTarget) {
+                    AddReward (4f);
+                    Debug.Log ("Success with: " + GetCumulativeReward ());
+                    Done ();
+                } else {
+                    brainConfig = 2;
+                    robotArm.holdingObject.GetComponent<TargetCollision> ().OnGroundCollision = () => {
+                        if (!robotArm.IsHoldingObject () && HeldAlready) {
+                            AddReward (-1f);
+                            //GiveBrain (PickupBrain);
+                            //Debug.Log(GetCumulativeReward());
+                            Done ();
+                        }
+                    };
+                }
             }
         };
 
@@ -66,12 +72,15 @@ public class RobotArmAgent : Agent {
     }
 
     private void SetupEvents () {
-        arena.container.OnGoalStay = () => {
-            if (!robotArm.IsHoldingObject ()) {
-                AddReward (2f);
-                Debug.Log ("Success with: " + GetCumulativeReward ());
-                arena.container.OnGoalStay = null;
-                Done ();
+        container.OnGoalStay = () => {
+            if (brain != NoTargetBrain) {
+                if (!robotArm.IsHoldingObject ()) {
+                    AddReward (2f);
+                    Debug.Log ("Success with: " + GetCumulativeReward ());
+                    container.OnGoalStay = null;
+                    target = null; 
+                    Done ();
+                }
             }
         };
     }
@@ -80,15 +89,20 @@ public class RobotArmAgent : Agent {
         base.GiveBrain (brain);
         if (brain == PickupBrain) {
             currentBrainType = RobotBrainType.PickupBrain;
-        } else {
+        } else if (brain == DropBrain) {
             currentBrainType = RobotBrainType.DropBrain;
+        } else {
+            currentBrainType = RobotBrainType.NoTargetBrain;
         }
     }
 
     public override void CollectObservations () {
 
-        AddVectorObs (target.transform.position - transform.position);
-        // 3
+        if (currentBrainType != RobotBrainType.NoTargetBrain) {
+
+            AddVectorObs (target.transform.position - transform.position);
+            // 3
+        }
 
         AddVectorObs (robotArm.Base.localEulerAngles.y);
         AddVectorObs (robotArm.Shoulder.localEulerAngles.z);
@@ -97,13 +111,19 @@ public class RobotArmAgent : Agent {
         // 4
 
         AddVectorObs (robotArm.Wrist.position - transform.position);
+        //Debug.Log(robotArm.Wrist.position - vehicle.transform.position);
         // 3
+        if (arena != null) {
+            AddVectorObs (arena.ground.position.y);
+        } else {
+            AddVectorObs (0);
+        }
 
-        AddVectorObs (arena.ground.position.y);
         // 1
 
         if (currentBrainType == RobotBrainType.DropBrain) {
-            AddVectorObs (arena.container.transform.position - transform.position);
+            AddVectorObs (container.transform.position - transform.position);
+            //Debug.Log(container.transform.position - vehicle.transform.position);
         }
         // 3
 
@@ -114,34 +134,36 @@ public class RobotArmAgent : Agent {
     }
 
     private void FixedUpdate () {
-        if (robotArm.Hand.transform.position.y < arena.ground.position.y) {
-            AddReward (-1f / agentParameters.maxStep * 5f);
-        }
-        if (robotArm.Wrist.transform.position.y < arena.ground.position.y) {
-            AddReward (-1f / agentParameters.maxStep * 5f);
-        }
-        if (robotArm.Elbow.transform.position.y < arena.ground.position.y) {
-            AddReward (-1f / agentParameters.maxStep * 5f);
-        }
-        if (robotArm.Shoulder.transform.position.y < arena.ground.position.y) {
-            AddReward (-1f / agentParameters.maxStep * 5f);
-        }
-
         if (robotArm.IsHoldingObject ()) {
             RaycastHit hit;
             if (Physics.SphereCast (target.position, 0.1f, -Vector3.up, out hit, 5f)) {
                 if (hit.collider.gameObject.CompareTag ("Container")) {
                     robotArm.ReleaseObject ();
                 }
+                Debug.DrawLine (hit.point, hit.point + new Vector3 (0, 1, 0));
             }
             Debug.DrawRay (target.position, -Vector3.up * 5f);
+        }
+
+        if (currentBrainType == RobotBrainType.NoTargetBrain) {
+            //float distShoulder = Vector3.Distance (robotArm.Shoulder.position, vehicle.transform.position + new Vector3 (0, 2.5f, 0));
+            float distElbow = Vector3.Distance (robotArm.Elbow.position, vehicle.transform.position + new Vector3 (0, 2.5f, 0));
+            float distHand = Vector3.Distance (robotArm.Hand.position, vehicle.transform.position + new Vector3 (0, 2.5f, 0));
+            float sum = distHand + distElbow;
+            AddReward (((sum - 3)/1000) * -1f);
+        }
+
+        if (brainConfig != 3 && target == null) {
+            brainConfig = 3;
         }
 
         if (brainConfig != -1) {
             if (brainConfig == 1) {
                 GiveBrain (PickupBrain);
-            } else {
+            } else if (brainConfig == 2) {
                 GiveBrain (DropBrain);
+            } else {
+                GiveBrain (NoTargetBrain);
             }
             brainConfig = -1;
         }
@@ -183,20 +205,21 @@ public class RobotArmAgent : Agent {
 
     public override void AgentReset () {
         HeldAlready = false;
-        arena.Reset ();
+        if (arena != null) {
+            arena.Reset ();
+        }
         robotArm.Reset ();
         robotArm.RandomRotation ();
         SetupEvents ();
         //transform.localPosition = Vector3.zero;
+        vehicle.transform.localPosition = new Vector3 (0, 0.15f, 0);
+        vehicle.transform.localEulerAngles = new Vector3 (0, 90f, 0);
         brainConfig = 1;
     }
 
     public void SetTarget (Transform target) {
         this.target = target;
-    }
-
-    public void SetContainer (Transform container) {
-        this.container = container;
+        brainConfig = 1;
     }
 
     private float ConvertAction (float action) {

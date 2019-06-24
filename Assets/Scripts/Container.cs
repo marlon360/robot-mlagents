@@ -8,7 +8,9 @@ public class Container : MonoBehaviour {
 
     private void OnTriggerStay (Collider other) {
         if (other.gameObject.CompareTag ("Target")) {
-            if (OnGoalStay != null) OnGoalStay.Invoke ();
+            if (OnGoalStay != null) {
+                OnGoalStay.Invoke ();
+            }
         }
     }
 }

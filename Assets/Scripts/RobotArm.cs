@@ -50,6 +50,7 @@ public class RobotArm : MonoBehaviour {
 
         Reset ();
     }
+    
 
 
     [ContextMenu ("Reset Rot")]
