@@ -213,7 +213,7 @@ public class RobotArmAgent : Agent {
         SetupEvents ();
         //transform.localPosition = Vector3.zero;
         vehicle.transform.localPosition = new Vector3 (0, 0.15f, 0);
-        vehicle.transform.localEulerAngles = new Vector3 (0, 90f, 0);
+        vehicle.transform.localEulerAngles = new Vector3 (0, 0, 0);
         brainConfig = 1;
     }
 

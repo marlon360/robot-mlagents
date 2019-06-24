@@ -170,7 +170,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.12180001, y: 0.50750005, z: 0.0017499235}
+  m_ConnectedAnchor: {x: 0.12180002, y: 0.50750005, z: 0.001749928}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0
@@ -318,7 +318,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000056927092, y: 0.088200055, z: 0.0035000166}
+  m_ConnectedAnchor: {x: -0.000000011234079, y: 0.088200055, z: 0.00350002}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -553,7 +553,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.009590768, y: -0.016974876, z: -0.00000010500662}
+  m_ConnectedAnchor: {x: -0.0095909275, y: -0.016974796, z: -0.000000024217387}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 0}
   m_XMotion: 0
@@ -975,6 +975,7 @@ GameObject:
   - component: {fileID: 6663967774730841702}
   - component: {fileID: 6663967774730841703}
   - component: {fileID: 6663967774730841704}
+  - component: {fileID: 3194919273652390723}
   m_Layer: 9
   m_Name: robotic_arm
   m_TagString: Robot
@@ -1010,7 +1011,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -1061,16 +1062,42 @@ MonoBehaviour:
   agentParameters:
     agentCameras: []
     agentRenderTextures: []
-    maxStep: 2000
-    resetOnDone: 1
+    maxStep: 0
+    resetOnDone: 0
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 5
   PickupBrain: {fileID: 11400000, guid: c1fd584375ab7404f8012d8cf94dbcfa, type: 2}
   DropBrain: {fileID: 11400000, guid: d11de9bd22823451c8300fd7371699cc, type: 2}
-  NoTargetBrain: {fileID: 0}
+  NoTargetBrain: {fileID: 11400000, guid: 991783100d88a4e0eaea71ef1e1a4ea3, type: 2}
   container: {fileID: 0}
   DoneOnTouchingTarget: 0
   vehicle: {fileID: 0}
+--- !u!1773428102 &3194919273652390723
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6663967774730841706}
+  m_Enabled: 1
+  m_Weight: 1
+  m_TranslationAtRest: {x: 1.2182912, y: 0.92973775, z: 0.021265388}
+  m_RotationAtRest: {x: 0, y: -1.0000031, z: 0}
+  m_TranslationOffsets:
+  - {x: 0, y: 0.92973775, z: 1.2184768}
+  m_RotationOffsets:
+  - {x: 0, y: -90, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 0}
+    weight: 1
 --- !u!1 &6663967774829352233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1650,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.49084097, y: -0.19169569, z: -0.0021000728}
+  m_ConnectedAnchor: {x: -0.4908411, y: -0.19169581, z: -0.0021000681}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 0, z: 1}
   m_XMotion: 0
