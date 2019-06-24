@@ -100,7 +100,7 @@ public class RobotArmAgent : Agent {
 
         if (currentBrainType != RobotBrainType.NoTargetBrain) {
 
-            AddVectorObs (target.transform.position - transform.position);
+            AddVectorObs (transform.InverseTransformPoint(target.position));
             // 3
         }
 
@@ -110,21 +110,7 @@ public class RobotArmAgent : Agent {
         AddVectorObs (robotArm.Wrist.localEulerAngles.z);
         // 4
 
-        AddVectorObs (robotArm.Wrist.position - transform.position);
-        //Debug.Log(robotArm.Wrist.position - vehicle.transform.position);
-        // 3
-        if (arena != null) {
-            AddVectorObs (arena.ground.position.y);
-        } else {
-            AddVectorObs (0);
-        }
-
-        // 1
-
-        if (currentBrainType == RobotBrainType.DropBrain) {
-            AddVectorObs (container.transform.position - transform.position);
-            //Debug.Log(container.transform.position - vehicle.transform.position);
-        }
+        AddVectorObs (transform.InverseTransformPoint(robotArm.Wrist.position));
         // 3
 
         if (!robotArm.IsHoldingObject ()) {
