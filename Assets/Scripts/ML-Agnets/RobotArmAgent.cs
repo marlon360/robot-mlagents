@@ -44,10 +44,14 @@ public class RobotArmAgent : Agent {
 
         robotArm.OnHoldingObject = () => {
             if (brain != NoTargetBrain) {
-                HeldAlready = true;
-                if (DoneOnTouchingTarget) {
+                if (!HeldAlready) {
+                    HeldAlready = true;
+                    agentParameters.maxStep = 2000;
                     AddReward (4f);
-                    Debug.Log ("Success with: " + GetCumulativeReward ());
+                    Debug.Log ("Pick Success with: " + GetCumulativeReward ());
+                }
+                
+                if (DoneOnTouchingTarget) {
                     Done ();
                 } else {
                     brainConfig = 2;
@@ -75,8 +79,8 @@ public class RobotArmAgent : Agent {
         container.OnGoalStay = () => {
             if (brain != NoTargetBrain) {
                 if (!robotArm.IsHoldingObject ()) {
-                    AddReward (2f);
-                    Debug.Log ("Success with: " + GetCumulativeReward ());
+                    AddReward (4f);
+                    Debug.Log ("Drop Success with: " + GetCumulativeReward ());
                     container.OnGoalStay = null;
                     target = null; 
                     Done ();
@@ -99,9 +103,8 @@ public class RobotArmAgent : Agent {
     public override void CollectObservations () {
 
         if (currentBrainType != RobotBrainType.NoTargetBrain) {
-
-            AddVectorObs (transform.InverseTransformPoint(target.position));
-            // 3
+            Vector3 dirToTarget = target.position - transform.position;
+            AddVectorObs (transform.rotation * dirToTarget); // 3
         }
 
         AddVectorObs (robotArm.Base.localEulerAngles.y);
@@ -110,13 +113,23 @@ public class RobotArmAgent : Agent {
         AddVectorObs (robotArm.Wrist.localEulerAngles.z);
         // 4
 
-        AddVectorObs (transform.InverseTransformPoint(robotArm.Wrist.position));
+        Vector3 dirToTWrist = robotArm.Wrist.position - transform.position;
+        AddVectorObs (transform.rotation * dirToTWrist);
         // 3
 
         if (!robotArm.IsHoldingObject ()) {
             SetActionMask (4, 1);
         }
 
+        if (currentBrainType == RobotBrainType.DropBrain) {
+            Vector3 dirToTContainer = container.transform.position - transform.position;
+            AddVectorObs (transform.rotation * dirToTContainer); // 3
+        }
+
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawSphere(container.transform.position + container.transform.up, 0.5f);
     }
 
     private void FixedUpdate () {
@@ -180,16 +193,24 @@ public class RobotArmAgent : Agent {
                 AddReward (Mathf.Clamp (reward, -0.1f, 0f));
             }
         }
+        if (currentBrainType == RobotBrainType.DropBrain) {
+            float distance = Vector3.Distance (robotArm.Hand.transform.position, container.transform.position + container.transform.up);
+            if (distance > 0.1) {
+                float reward = -1f / agentParameters.maxStep * distance;
+                AddReward (Mathf.Clamp (reward, -0.1f, 0f));
+            }
+        }
 
-        // if (currentBrainType == RobotBrainType.DropBrain) {
-        //     if (robotArm.Hand.position.y < arena.container.transform.position.y + arena.container.transform.localScale.y) {
-        //         AddReward (-1f / agentParameters.maxStep * 10f);
-        //     }
-        // }
+        if (currentBrainType == RobotBrainType.DropBrain) {
+            if (robotArm.Hand.position.y < container.transform.position.y + container.transform.localScale.y / 2f) {
+                AddReward (-1f / agentParameters.maxStep * 10f);
+            }
+        }
 
     }
 
     public override void AgentReset () {
+        agentParameters.maxStep = 1200;
         HeldAlready = false;
         if (arena != null) {
             arena.Reset ();
