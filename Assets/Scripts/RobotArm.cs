@@ -25,6 +25,7 @@ public class RobotArm : MonoBehaviour {
     public Action<Collision> OnCollision;
 
     private Vector3 BaseRotationStart;
+    private Vector3 BasePositionStart;
     private Vector3 ShoulderRotationStart;
     private Vector3 ElbowRotationStart;
     private Vector3 WristRotationStart;
@@ -37,7 +38,9 @@ public class RobotArm : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start () {
+        
         BaseRotationStart = Base.localRotation.eulerAngles;
+        BasePositionStart = Base.localPosition;
         ShoulderRotationStart = Shoulder.localRotation.eulerAngles;
         ElbowRotationStart = Elbow.localRotation.eulerAngles;
         WristRotationStart = Wrist.localRotation.eulerAngles;
@@ -56,6 +59,8 @@ public class RobotArm : MonoBehaviour {
     [ContextMenu ("Reset Rot")]
     public void Reset () {
         holdingTimer = 101;
+        Base.GetComponent<Rigidbody>().Sleep();
+        Base.localPosition = BasePositionStart;
     }
 
     public void StartRotation() {
