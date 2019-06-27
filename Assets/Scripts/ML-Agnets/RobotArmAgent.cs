@@ -25,7 +25,7 @@ public class RobotArmAgent : Agent {
     private Transform target;
 
     private RobotArm robotArm;
-    public WheelVehicle vehicle;
+    public GameObject vehicle;
     private RobotArmArena arena;
 
     private bool HeldAlready = false;
@@ -153,13 +153,6 @@ public class RobotArmAgent : Agent {
             Debug.DrawRay (target.position, -Vector3.up * 5f);
         }
 
-        if (currentBrainType == RobotBrainType.NoTargetBrain) {
-            //float distShoulder = Vector3.Distance (robotArm.Shoulder.position, vehicle.transform.position + new Vector3 (0, 2.5f, 0));
-            float distElbow = Vector3.Distance (robotArm.Elbow.position, vehicle.transform.position + new Vector3 (0, 2.5f, 0));
-            float distHand = Vector3.Distance (robotArm.Hand.position, vehicle.transform.position + new Vector3 (0, 2.5f, 0));
-            float sum = distHand + distElbow;
-            AddReward (((sum - 3)/1000) * -1f);
-        }
 
         // if (brainConfig != 3 && target == null) {
         //     brainConfig = 3;
