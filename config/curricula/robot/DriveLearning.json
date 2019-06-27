@@ -1,0 +1,13 @@
+{
+    "measure" : "reward",
+    "thresholds" : [3.8, 3.6, 3.3, 2.6, 3.7, 3.8],
+    "min_lesson_length": 2000,
+    "signal_smoothing" : true, 
+    "parameters" : 
+    {
+        "obstacles" : [0, 1, 2, 3, 5, 8, 10],
+        "staycount" : [0, 0, 0, 0, 200, 500, 1000],
+        "level" :     [1, 2, 3, 4, 5, 6, 7],
+        "min_throttle" :[-0.1, -0.2, -0.3, -0.5, -0.7, -0.9, -1]
+    }
+}
