@@ -46,7 +46,7 @@ public class RobotArmAgent : Agent {
             if (brain != NoTargetBrain) {
                 if (!HeldAlready) {
                     HeldAlready = true;
-                    agentParameters.maxStep = GetStepCount() + 1200;
+                    agentParameters.maxStep = GetStepCount() + 2000;
                     AddReward (4f);
                     if (DoneOnTouchingTarget) {
                         Debug.Log ("Pick Success with: " + GetCumulativeReward ());
@@ -85,10 +85,10 @@ public class RobotArmAgent : Agent {
                 if (!robotArm.IsHoldingObject ()) {
                     AddReward (4f);
                     Debug.Log ("Drop Success with: " + GetCumulativeReward ());
-                    container.OnGoalStay = null;
-                    target = null;
                     ResultLogger.AddSuccess();
                     ResultLogger.LogRatio();
+                    container.OnGoalStay = null;
+                    target = null;
                     Done ();
                 }
             }
@@ -110,7 +110,7 @@ public class RobotArmAgent : Agent {
 
         if (currentBrainType != RobotBrainType.NoTargetBrain) {
             Vector3 dirToTarget = target.position - transform.position;
-            AddVectorObs (transform.rotation * dirToTarget); // 3
+            AddVectorObs (transform.InverseTransformVector(dirToTarget)); // 3
         }
 
         AddVectorObs (robotArm.Base.localEulerAngles.y);
@@ -120,7 +120,7 @@ public class RobotArmAgent : Agent {
         // 4
 
         Vector3 dirToTHand = robotArm.Hand.position - transform.position;
-        AddVectorObs (transform.rotation * dirToTHand);
+        AddVectorObs (transform.InverseTransformVector(dirToTHand));
         // 3
 
         if (!robotArm.IsHoldingObject ()) {
@@ -129,7 +129,7 @@ public class RobotArmAgent : Agent {
 
         if (currentBrainType == RobotBrainType.DropBrain) {
             Vector3 dirToTContainer = container.transform.position - transform.position;
-            AddVectorObs (transform.rotation * dirToTContainer); // 3
+            AddVectorObs (transform.InverseTransformVector(dirToTContainer)); // 3
         }
 
     }
