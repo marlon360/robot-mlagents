@@ -2,7 +2,7 @@ fileFormatVersion: 2
 guid: 67904f06e69f345fcbd695caa2723869
 ScriptedImporter:
   fileIDToRecycleName:
-    11400000: Assets/TFModels/RobotArmLearning.nn
+    11400002: Assets/TFModels/PickupLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

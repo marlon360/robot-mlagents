@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: RobotArmLearning
+  m_Name: PickupLearning
   m_EditorClassIdentifier: 
   brainParameters:
     vectorObservationSize: 10
@@ -24,5 +24,5 @@ MonoBehaviour:
     - 
     - 
     vectorActionSpaceType: 0
-  model: {fileID: 11400000, guid: 67904f06e69f345fcbd695caa2723869, type: 3}
+  model: {fileID: 11400002, guid: 67904f06e69f345fcbd695caa2723869, type: 3}
   inferenceDevice: 0
