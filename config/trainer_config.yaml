@@ -28,22 +28,20 @@ BananaLearning:
     buffer_size: 10240
     max_steps: 1.0e5
 
-ForkliftLearning:
+DriveLearning:
     beta: 1.0e-2
     batch_size: 1024
-    buffer_size: 1024
+    buffer_size: 2048
     epsilon: 0.2
-    gamma: 0.99
+    gamma: 0.97
     hidden_units: 128
     lambd: 0.95
     learning_rate: 3.0e-4
     max_steps: 1.0e7
-    memory_size: 256
     normalize: true
     num_epoch: 5
     num_layers: 2
-    time_horizon: 512
-    sequence_length: 64
+    time_horizon: 1000
 
 ForkliftLiftLearning:
     beta: 1.0e-2
