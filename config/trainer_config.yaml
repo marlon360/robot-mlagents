@@ -67,7 +67,7 @@ RobotArmLearning:
     hidden_units: 64
     lambd: 0.95
     learning_rate: 2.0e-4
-    max_steps: 2.0e6
+    max_steps: 3.0e6
     normalize: true
     num_epoch: 5
     num_layers: 2
@@ -82,7 +82,7 @@ DropLearning:
     hidden_units: 64
     lambd: 0.95
     learning_rate: 2.0e-4
-    max_steps: 2.0e6
+    max_steps: 1.0e6
     normalize: true
     num_epoch: 5
     num_layers: 2
