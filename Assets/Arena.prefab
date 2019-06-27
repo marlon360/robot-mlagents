@@ -557,6 +557,11 @@ PrefabInstance:
       objectReference: {fileID: 3021738968377644946}
     - target: {fileID: 1834565396399576656, guid: 90b88a32add9c474ca63471610800931,
         type: 3}
+      propertyPath: DoneOnPickup
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834565396399576656, guid: 90b88a32add9c474ca63471610800931,
+        type: 3}
       propertyPath: vehicle
       value: 
       objectReference: {fileID: 327383938373981381}

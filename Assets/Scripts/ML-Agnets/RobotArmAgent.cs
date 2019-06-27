@@ -17,7 +17,8 @@ public class RobotArmAgent : Agent {
     public Brain NoTargetBrain;
 
     public Container container;
-    public bool DoneOnTouchingTarget = true;
+    public bool DoneOnPickup = true;
+    public bool DoneOnDrop = true;
 
     private RobotBrainType currentBrainType;
 
@@ -48,7 +49,7 @@ public class RobotArmAgent : Agent {
                     HeldAlready = true;
                     agentParameters.maxStep = GetStepCount() + 2000;
                     AddReward (4f);
-                    if (DoneOnTouchingTarget) {
+                    if (DoneOnPickup) {
                         Debug.Log ("Pick Success with: " + GetCumulativeReward ());
                         Done();
                     } else {
@@ -56,7 +57,7 @@ public class RobotArmAgent : Agent {
                     }
                 }
                 
-                if (!DoneOnTouchingTarget) {
+                if (!DoneOnPickup) {
                     brainConfig = 2;
                     robotArm.holdingObject.GetComponent<TargetCollision> ().OnGroundCollision = () => {
                         if (!robotArm.IsHoldingObject () && HeldAlready) {
@@ -89,7 +90,9 @@ public class RobotArmAgent : Agent {
                     ResultLogger.LogRatio();
                     container.OnGoalStay = null;
                     target = null;
-                    Done ();
+                    if (DoneOnDrop) {
+                        Done ();
+                    }
                 }
             }
         };
