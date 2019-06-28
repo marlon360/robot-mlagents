@@ -63,8 +63,6 @@ public class RobotArmAgent : Agent, ITrainable {
                         if (!robotArm.IsHoldingObject () && HeldAlready) {
                             AddReward (-1f);
                             //GiveBrain (PickupBrain);
-                            //Debug.Log(GetCumulativeReward());
-                            Debug.Log("GROUND COLL = FAIL");
                             Done ();
                         }
                     };
@@ -154,9 +152,11 @@ public class RobotArmAgent : Agent, ITrainable {
         }
 
 
-        // if (brainConfig != 3 && target == null) {
-        //     brainConfig = 3;
-        // }
+        if (!DoneOnDrop) {
+            if (brainConfig != 3 && target == null) {
+                brainConfig = 3;
+            }
+        }
 
         if (brainConfig != -1) {
             if (brainConfig == 1) {
