@@ -11,6 +11,13 @@ public class DrivingTainingArea : TrainingArea {
     private List<GameObject> targetList = new List<GameObject> ();
     private List<GameObject> obstacleList = new List<GameObject> ();
 
+    private VehicleAgent vehicleAgent;
+
+    protected override void Start() {
+        base.Start();
+        vehicleAgent = GetComponentInChildren<VehicleAgent>();
+    }
+
     public override void AreaReset() {
         DeleteAllTargets ();
         for (int i = 1; i <= numberOfTargets; i++) {
@@ -20,6 +27,7 @@ public class DrivingTainingArea : TrainingArea {
         for (int i = 1; i <= academy.resetParameters["obstacles"]; i++) {
             InstantiateObstacle ();
         }
+        vehicleAgent.target = FindNearestTarget ().transform;
     }
 
     public GameObject FindNearestTarget () {

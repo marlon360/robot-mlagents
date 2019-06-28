@@ -11,7 +11,7 @@ enum RobotBrainType {
 }
 
 [RequireComponent (typeof (RobotArm))]
-public class RobotArmAgent : Agent, ITrainable {
+public class RobotArmAgent : Agent, ITrainable, IInferenceable {
 
     public Brain PickupBrain;
     public Brain DropBrain;
@@ -52,7 +52,9 @@ public class RobotArmAgent : Agent, ITrainable {
             if (brain != NoTargetBrain) {
                 if (!HeldAlready) {
                     HeldAlready = true;
-                    agentParameters.maxStep = GetStepCount() + 2000;
+                    if (area.IsTrainingArea()) {
+                        agentParameters.maxStep = GetStepCount() + 2000;
+                    }
                     AddReward (4f);
                     if (DoneOnPickup) {
                         Debug.Log ("Pick Success with: " + GetCumulativeReward ());
@@ -117,6 +119,9 @@ public class RobotArmAgent : Agent, ITrainable {
 
     public override void CollectObservations () {
 
+        if (target == null) {
+            GiveBrain(NoTargetBrain);
+        }
         if (currentBrainType != RobotBrainType.NoTargetBrain) {
             Vector3 dirToTarget = target.position - transform.position;
             AddVectorObs (transform.InverseTransformVector(dirToTarget)); // 3
@@ -148,9 +153,11 @@ public class RobotArmAgent : Agent, ITrainable {
     }
 
     private void FixedUpdate () {
-        if (robotArm.IsHoldingObject ()) {
+        if (robotArm.IsHoldingObject () && target != null) {
             RaycastHit hit;
-            if (Physics.SphereCast (target.position, 0.1f, -Vector3.up, out hit, 5f)) {
+            int layerMask = 1 << 9;
+            layerMask = ~layerMask;
+            if (Physics.SphereCast (target.position, 0.1f, -Vector3.up, out hit, 5f, layerMask)) {
                 if (hit.collider.gameObject.CompareTag ("Container")) {
                     robotArm.ReleaseObject ();
                 }
@@ -164,6 +171,10 @@ public class RobotArmAgent : Agent, ITrainable {
             if (brainConfig != 3 && target == null) {
                 brainConfig = 3;
             }
+        }
+
+        if (robotArm.IsHoldingObject() && brain != DropBrain) {
+            brainConfig = 2;
         }
 
         if (brainConfig != -1) {
@@ -236,6 +247,12 @@ public class RobotArmAgent : Agent, ITrainable {
         vehicle.transform.localEulerAngles = new Vector3 (0, 0, 0);
         brainConfig = 1;
         ResultLogger.AddTry();
+    }
+
+    public void ResetForInference() {
+        brainConfig = 3;
+        HeldAlready = false;
+        SetupEvents ();
     }
 
     public void SetTarget (Transform target) {

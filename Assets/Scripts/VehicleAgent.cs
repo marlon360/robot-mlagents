@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using MLAgents;
 using UnityEngine;
 
-public class VehicleAgent : Agent, ITrainable {
+public class VehicleAgent : Agent, ITrainable, IInferenceable {
 
     public RobotArmAgent robotArmAgent;
 
@@ -33,7 +33,7 @@ public class VehicleAgent : Agent, ITrainable {
         wheelVehicle = GetComponent<WheelVehicle> ();
         rigid = GetComponent<Rigidbody> ();
         rayPer = GetComponentInChildren<RayPerception3D> ();
-        area = GetComponentInParent<DrivingTainingArea> ();
+        area = GetComponentInParent<Area> ();
         academy = FindObjectOfType<RobotArmAcademy> ();
 
     }
@@ -60,13 +60,11 @@ public class VehicleAgent : Agent, ITrainable {
     }
 
     public override void AgentAction (float[] vectorAction, string textAction) {
-
         AddReward (-1f / agentParameters.maxStep);
 
-        throttleInput = Mathf.Clamp (vectorAction[0], academy.resetParameters["min_throttle"], 1f);
+        throttleInput = Mathf.Clamp (vectorAction[0], academy.resetParameters.ContainsKey("min_throttle") ? academy.resetParameters["min_throttle"] : -1f, 1f);
         steeringInput = Mathf.Clamp (vectorAction[1], -1f, 1f);
         handbrakeInput = Mathf.Clamp (vectorAction[2], -1f, 1f) > 0.9f;
-
     }
 
     private void FixedUpdate () {
@@ -85,6 +83,8 @@ public class VehicleAgent : Agent, ITrainable {
                     AddReward (5f);
                     AddReward (-1f * Mathf.Abs (wheelVehicle.Speed));
                     Debug.Log ("SUCCESS");
+                    ResultLogger.AddSuccess();
+                    ResultLogger.LogRatio();
                     Done ();
                 } else {
                     AddReward (1f);
@@ -114,6 +114,8 @@ public class VehicleAgent : Agent, ITrainable {
                         AddReward (5f);
                         AddReward (-1f * Mathf.Abs (wheelVehicle.Speed));
                         Debug.Log ("SUCCESS");
+                        ResultLogger.AddSuccess();
+                        ResultLogger.LogRatio();
                         Done ();
                     }
                 }
@@ -132,6 +134,7 @@ public class VehicleAgent : Agent, ITrainable {
     }
 
     public override void AgentReset () {
+        ResultLogger.AddTry();
         if (area != null) {
             area.Reset ();
         }
@@ -150,6 +153,14 @@ public class VehicleAgent : Agent, ITrainable {
             transform.localPosition = new Vector3 (UnityEngine.Random.Range (-14f, 14f), 0, UnityEngine.Random.Range (-14f, 14f));
             transform.eulerAngles = new Vector3 (0, UnityEngine.Random.Range (0f, 360f), 0);
         }
+    }
+
+    public void ResetForInference() {
+        rigid.velocity = Vector3.zero;
+        rigid.angularVelocity = Vector3.zero;
+        throttleInput = 0;
+        steeringInput = 0;
+        handbrakeInput = false;
     }
 
 }
