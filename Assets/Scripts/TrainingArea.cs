@@ -6,8 +6,8 @@ using MLAgents;
 public abstract class TrainingArea : MonoBehaviour {
     
     public Agent agent;
-    private ITrainable trainable;
-    private Academy academy;
+    protected ITrainable trainable;
+    protected Academy academy;
 
     protected virtual void Start() {
         academy = FindObjectOfType<Academy>();
@@ -21,8 +21,8 @@ public abstract class TrainingArea : MonoBehaviour {
     }
 
     public void Reset() {
-        trainable.ResetForTraining();
         AreaReset();
+        trainable.ResetForTraining();
     }
 
     public abstract void AreaReset();

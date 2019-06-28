@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MLAgents;
 using UnityEngine;
 
-public class VehicleAgent : Agent {
+public class VehicleAgent : Agent, ITrainable {
 
     public RobotArmAgent robotArmAgent;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrivingTainingArea : MonoBehaviour {
+public class DrivingTainingArea : TrainingArea {
 
     public GameObject Target;
     public int numberOfTargets = 5;
@@ -10,16 +10,8 @@ public class DrivingTainingArea : MonoBehaviour {
     public float distance = 0;
     private List<GameObject> targetList = new List<GameObject> ();
     private List<GameObject> obstacleList = new List<GameObject> ();
-    private VehicleAgent agent;
 
-    private RobotArmAcademy academy;
-
-    private void Start () {
-        agent = GetComponentInChildren<VehicleAgent> ();
-        academy = FindObjectOfType<RobotArmAcademy> ();
-    }
-
-    public void Reset () {
+    public override void AreaReset() {
         DeleteAllTargets ();
         for (int i = 1; i <= numberOfTargets; i++) {
             InstantiateTarget ();
@@ -28,7 +20,6 @@ public class DrivingTainingArea : MonoBehaviour {
         for (int i = 1; i <= academy.resetParameters["obstacles"]; i++) {
             InstantiateObstacle ();
         }
-        agent.ResetForTraining();
     }
 
     public GameObject FindNearestTarget () {
