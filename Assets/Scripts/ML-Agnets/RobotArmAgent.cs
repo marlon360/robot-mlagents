@@ -30,7 +30,7 @@ public class RobotArmAgent : Agent, ITrainable {
     private Transform target;
 
     private RobotArm robotArm;
-    private RobotArmArena arena;
+    private Area area;
 
     private bool HeldAlready = false;
 
@@ -45,7 +45,7 @@ public class RobotArmAgent : Agent, ITrainable {
         SetupEvents();
 
         robotArm = GetComponent<RobotArm> ();
-        arena = GetComponentInParent<RobotArmArena> ();
+        area = GetComponentInParent<Area> ();
 
         robotArm.OnHoldingObject = () => {
             if (brain != NoTargetBrain) {
@@ -219,8 +219,8 @@ public class RobotArmAgent : Agent, ITrainable {
     }
 
     public override void AgentReset () {
-        if (arena != null) {
-            arena.Reset ();
+        if (area != null) {
+            area.Reset ();
         }
     }
 

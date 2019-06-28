@@ -12,13 +12,13 @@ public class VehicleAgent : Agent, ITrainable {
 
     private RayPerception3D rayPer;
 
-    private DrivingTainingArea area;
+    private Area area;
 
     private float throttleInput;
     private float steeringInput;
     private bool handbrakeInput;
 
-    private Transform target;
+    public Transform target;
 
     private int staycounter = 0;
 
@@ -125,7 +125,6 @@ public class VehicleAgent : Agent, ITrainable {
 
     public void ResetForTraining() {
         staycounter = 0;
-        target = area.FindNearestTarget ().transform;
         rigid.Sleep ();
         if (academy.resetParameters["level"] < 3f) {
             transform.localPosition = new Vector3 (0, 0, 0);
