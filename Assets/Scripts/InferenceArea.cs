@@ -5,23 +5,28 @@ using MLAgents;
 
 public abstract class InferenceArea : Area {
     
-    public Agent agent;
-    protected ITrainable trainable;
+    public Agent[] agents;
+    protected IInferenceable[] inferenceables;
     protected Academy academy;
 
     protected virtual void Start() {
         academy = FindObjectOfType<Academy>();
         try {
-            trainable = (ITrainable) agent;
+            inferenceables = new IInferenceable[agents.Length];
+            for (int i = 0; i < agents.Length; i++) {
+                inferenceables[i] = (IInferenceable) agents[i];
+            }
         }
         catch (System.Exception)  {
-            Debug.LogError("The agent ("+agent.name+") does not implement ITrainable!");
+            Debug.LogError("The agents do not implement IInferenceable!");
         }
     }
 
     public override void Reset() {
         AreaReset();
-        trainable.ResetForTraining();
+        foreach (IInferenceable inferenceable in inferenceables) {
+            inferenceable.ResetForInference();
+        }
     }
 
     public abstract void AreaReset();
