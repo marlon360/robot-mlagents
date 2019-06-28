@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using MLAgents;
 using UnityEngine;
@@ -19,6 +20,9 @@ public class VehicleAgent : Agent, ITrainable {
     private bool handbrakeInput;
 
     public Transform target;
+
+    public Action<Transform> OnTargetEnter;
+    public Action<Transform> OnTargetExit;
 
     private int staycounter = 0;
 
@@ -76,15 +80,19 @@ public class VehicleAgent : Agent, ITrainable {
             // if (!robotArmAgent.HasTarget()) {
             //     robotArmAgent.SetTarget(other.transform);
             // }
-            if (academy.resetParameters["staycount"] == 0f) {
-                AddReward (5f);
-                AddReward (-1f * Mathf.Abs (wheelVehicle.Speed));
-                Debug.Log ("SUCCESS");
-                Done ();
-            } else {
-                AddReward (1f);
+            if (area.IsTrainingArea()) {
+                if (academy.resetParameters["staycount"] == 0f) {
+                    AddReward (5f);
+                    AddReward (-1f * Mathf.Abs (wheelVehicle.Speed));
+                    Debug.Log ("SUCCESS");
+                    Done ();
+                } else {
+                    AddReward (1f);
+                }
             }
-
+            if (OnTargetEnter != null) {
+                OnTargetEnter.Invoke(other.transform);
+            }
         }
     }
 
@@ -97,14 +105,17 @@ public class VehicleAgent : Agent, ITrainable {
 
     private void OnTriggerStay (Collider other) {
         if (other.gameObject.CompareTag ("Target")) {
-            if (academy.resetParameters["staycount"] != 0f) {
-                staycounter++;
-                if (staycounter > academy.resetParameters["staycount"]) {
-                    staycounter = -5000;
-                    AddReward (5f);
-                    AddReward (-1f * Mathf.Abs (wheelVehicle.Speed));
-                    Debug.Log ("SUCCESS");
-                    Done ();
+            // just test stay if training
+            if (area.IsTrainingArea()) {
+                if (academy.resetParameters["staycount"] != 0f) {
+                    staycounter++;
+                    if (staycounter > academy.resetParameters["staycount"]) {
+                        staycounter = -5000;
+                        AddReward (5f);
+                        AddReward (-1f * Mathf.Abs (wheelVehicle.Speed));
+                        Debug.Log ("SUCCESS");
+                        Done ();
+                    }
                 }
             }
         }
@@ -114,6 +125,9 @@ public class VehicleAgent : Agent, ITrainable {
         if (other.gameObject.CompareTag ("Target")) {
             staycounter = 0;
             AddReward (-1f);
+            if (OnTargetExit != null) {
+                OnTargetExit.Invoke(other.transform);
+            }
         }
     }
 
@@ -130,11 +144,11 @@ public class VehicleAgent : Agent, ITrainable {
             transform.localPosition = new Vector3 (0, 0, 0);
             transform.eulerAngles = new Vector3 (0, 0, 0);
         } else if (academy.resetParameters["level"] == 3f) {
-            transform.localPosition = new Vector3 (Random.Range (-2f, 2f), 0, Random.Range (-2f, 2f));
-            transform.eulerAngles = new Vector3 (0, Random.Range (-90f, 90f), 0);
+            transform.localPosition = new Vector3 (UnityEngine.Random.Range (-2f, 2f), 0, UnityEngine.Random.Range (-2f, 2f));
+            transform.eulerAngles = new Vector3 (0, UnityEngine.Random.Range (-90f, 90f), 0);
         } else {
-            transform.localPosition = new Vector3 (Random.Range (-14f, 14f), 0, Random.Range (-14f, 14f));
-            transform.eulerAngles = new Vector3 (0, Random.Range (0f, 360f), 0);
+            transform.localPosition = new Vector3 (UnityEngine.Random.Range (-14f, 14f), 0, UnityEngine.Random.Range (-14f, 14f));
+            transform.eulerAngles = new Vector3 (0, UnityEngine.Random.Range (0f, 360f), 0);
         }
     }
 
