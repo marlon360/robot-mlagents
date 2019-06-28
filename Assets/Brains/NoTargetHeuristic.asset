@@ -13,12 +13,17 @@ MonoBehaviour:
   m_Name: NoTargetHeuristic
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 1
+    vectorObservationSize: 7
     numStackedVectorObservations: 1
-    vectorActionSize: 01000000
+    vectorActionSize: 0300000003000000030000000300000002000000
     cameraResolutions: []
-    vectorActionDescriptions: []
+    vectorActionDescriptions:
+    - 
+    - 
+    - 
+    - 
+    - 
     vectorActionSpaceType: 0
   decision: {fileID: 0}
-  decisionScript: {fileID: 0}
+  decisionScript: {fileID: 11500000, guid: 353f35bac6a434a1fa1a3b0ceb4c316a, type: 3}
   c_decision: 

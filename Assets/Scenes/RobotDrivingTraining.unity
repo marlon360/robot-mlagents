@@ -995,8 +995,7 @@ MonoBehaviour:
   broadcastHub:
     broadcastingBrains:
     - {fileID: 11400000, guid: 34bd0e0740fa6449ebc82315be113de2, type: 2}
-    _brainsToControl:
-    - {fileID: 11400000, guid: 34bd0e0740fa6449ebc82315be113de2, type: 2}
+    _brainsToControl: []
   maxSteps: 0
   trainingConfiguration:
     width: 80
@@ -1013,11 +1012,11 @@ MonoBehaviour:
   resetParameters:
     resetParameters:
     - key: obstacles
-      value: 2
+      value: 4
     - key: staycount
-      value: 5
+      value: 500
     - key: level
-      value: 1
+      value: 5
     - key: min_throttle
       value: -1
 --- !u!4 &2139970163
