@@ -40,6 +40,7 @@ public class RobotArmArena : MonoBehaviour {
         } else {
             Goal.SetActive(false);
         }
+        agent.ResetForTraining();
     }
 
     public float RadomSign () {

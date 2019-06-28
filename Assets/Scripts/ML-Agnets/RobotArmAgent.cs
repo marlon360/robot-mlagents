@@ -212,11 +212,14 @@ public class RobotArmAgent : Agent {
     }
 
     public override void AgentReset () {
-        agentParameters.maxStep = 1200;
-        HeldAlready = false;
         if (arena != null) {
             arena.Reset ();
         }
+    }
+
+    public void ResetForTraining() {
+        agentParameters.maxStep = 1200;
+        HeldAlready = false;
         robotArm.Reset ();
         robotArm.RandomRotation ();
         SetupEvents ();
