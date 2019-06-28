@@ -10,7 +10,7 @@ enum RobotBrainType {
 }
 
 [RequireComponent (typeof (RobotArm))]
-public class RobotArmAgent : Agent {
+public class RobotArmAgent : Agent, ITrainable {
 
     public Brain PickupBrain;
     public Brain DropBrain;
