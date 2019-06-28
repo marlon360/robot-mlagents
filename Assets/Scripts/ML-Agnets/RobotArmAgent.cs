@@ -29,7 +29,8 @@ public class RobotArmAgent : Agent, ITrainable {
 
     private Transform target;
 
-    private RobotArm robotArm;
+    [HideInInspector]
+    public RobotArm robotArm;
     private Area area;
 
     private bool HeldAlready = false;
