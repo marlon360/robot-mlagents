@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using MLAgents;
 using UnityEngine;
@@ -20,12 +21,15 @@ public class RobotArmAgent : Agent, ITrainable {
     public bool DoneOnPickup = true;
     public bool DoneOnDrop = true;
 
+    public GameObject vehicle;
+
+    public Action<Transform> OnTargetDroppedSuccessfully;
+
     private RobotBrainType currentBrainType;
 
     private Transform target;
 
     private RobotArm robotArm;
-    public GameObject vehicle;
     private RobotArmArena arena;
 
     private bool HeldAlready = false;
@@ -86,6 +90,7 @@ public class RobotArmAgent : Agent, ITrainable {
                     Debug.Log ("Drop Success with: " + GetCumulativeReward ());
                     ResultLogger.AddSuccess();
                     ResultLogger.LogRatio();
+                    OnTargetDroppedSuccessfully.Invoke(target);
                     container.OnGoalStay = null;
                     target = null;
                     if (DoneOnDrop) {
