@@ -28,6 +28,7 @@ public class DrivingTainingArea : MonoBehaviour {
         for (int i = 1; i <= academy.resetParameters["obstacles"]; i++) {
             InstantiateObstacle ();
         }
+        agent.ResetForTraining();
     }
 
     public GameObject FindNearestTarget () {

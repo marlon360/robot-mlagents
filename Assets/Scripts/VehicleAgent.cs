@@ -118,8 +118,13 @@ public class VehicleAgent : Agent {
     }
 
     public override void AgentReset () {
+        if (area != null) {
+            area.Reset ();
+        }
+    }
+
+    public void ResetForTraining() {
         staycounter = 0;
-        area.Reset ();
         target = area.FindNearestTarget ().transform;
         rigid.Sleep ();
         if (academy.resetParameters["level"] < 3f) {
