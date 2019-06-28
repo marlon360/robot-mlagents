@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RobotArmArena : MonoBehaviour {
+public class RobotArmArena : TrainingArea {
 
     public GameObject Goal;
     public Transform ground;
 
     public bool setTarget = true;
 
-    private RobotArmAgent agent;
+    private RobotArmAgent RobotAgent;
 
-    private void Start () {
-        agent = GetComponentInChildren<RobotArmAgent> ();
+    protected override void Start () {
+        base.Start();
+        RobotAgent = GetComponentInChildren<RobotArmAgent> ();
     }
 
-    [ContextMenu ("Reset Arena")]
-    public void Reset () {
+    public override void AreaReset() {
         if (setTarget) {
             Goal.GetComponent<Rigidbody> ().isKinematic = true;
-            agent.SetTarget (Goal.transform);
+            RobotAgent.SetTarget (Goal.transform);
             Goal.transform.parent = transform;
             Goal.transform.rotation = Quaternion.identity;
 
@@ -29,9 +29,9 @@ public class RobotArmArena : MonoBehaviour {
             float y = radius * Mathf.Sin (t);
 
             Goal.transform.position = new Vector3 (
-                x + agent.transform.position.x,
+                x + RobotAgent.transform.position.x,
                 Goal.transform.localScale.y + transform.position.y,
-                y + agent.transform.position.z
+                y + RobotAgent.transform.position.z
             );
 
             Goal.GetComponent<Rigidbody> ().velocity = Vector3.zero;
@@ -40,7 +40,6 @@ public class RobotArmArena : MonoBehaviour {
         } else {
             Goal.SetActive(false);
         }
-        agent.ResetForTraining();
     }
 
     public float RadomSign () {

@@ -5,15 +5,23 @@ using MLAgents;
 
 public abstract class TrainingArea : MonoBehaviour {
     
-    public ITrainable agent;
+    public Agent agent;
+    private ITrainable trainable;
     private Academy academy;
 
-    private void Start() {
+    protected virtual void Start() {
         academy = FindObjectOfType<Academy>();
+        try {
+            trainable = (ITrainable) agent;
+        }
+        catch (System.Exception)  {
+            Debug.LogError("The agent ("+agent.name+") does not implement ITrainable!");
+        }
+        
     }
 
     public void Reset() {
-        agent.ResetForTraining();
+        trainable.ResetForTraining();
         AreaReset();
     }
 

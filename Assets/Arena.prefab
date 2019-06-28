@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c2c1f39a7ca475e86b460b5d65a0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 2075123895066127964}
   Goal: {fileID: 145876709}
   ground: {fileID: 1829907014}
   setTarget: 1
