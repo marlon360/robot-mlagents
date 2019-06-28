@@ -90,7 +90,9 @@ public class RobotArmAgent : Agent, ITrainable {
                     Debug.Log ("Drop Success with: " + GetCumulativeReward ());
                     ResultLogger.AddSuccess();
                     ResultLogger.LogRatio();
-                    OnTargetDroppedSuccessfully.Invoke(target);
+                    if (OnTargetDroppedSuccessfully != null) {
+                        OnTargetDroppedSuccessfully.Invoke(target);
+                    }
                     container.OnGoalStay = null;
                     target = null;
                     if (DoneOnDrop) {
