@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MLAgents;
 
-public abstract class TrainingArea : Area {
+public abstract class InferenceArea : Area {
     
     public Agent agent;
     protected ITrainable trainable;
@@ -17,7 +17,6 @@ public abstract class TrainingArea : Area {
         catch (System.Exception)  {
             Debug.LogError("The agent ("+agent.name+") does not implement ITrainable!");
         }
-        
     }
 
     public override void Reset() {
@@ -28,10 +27,10 @@ public abstract class TrainingArea : Area {
     public abstract void AreaReset();
 
     public override bool IsTrainingArea() {
-        return true;
+        return false;
     }
     public override bool IsInferenceArea() {
-        return false;
+        return true;
     }
 
 }
