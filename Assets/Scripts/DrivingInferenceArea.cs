@@ -34,9 +34,16 @@ public class DrivingInferenceArea : InferenceArea
         };
     }
 
+    private void FixedUpdate() {
+        if (Target.transform.position.y < transform.position.y - 2f) {
+            AreaReset();
+        }
+    }
+
     public override void AreaReset() {
         robotArmAgent.SetTarget(null);
         robotArmAgent.robotArm.Reset();
+        robotArmAgent.robotArm.StartRotation();
         vehicleAgent.GetComponent<Rigidbody>().Sleep();
         vehicleAgent.target = Target.transform;
         vehicleAgent.transform.localPosition = new Vector3(0f,0f,0f);
