@@ -173,9 +173,12 @@ public class RobotArmAgent : Agent, ITrainable, IInferenceable {
             }
         }
 
-        if (robotArm.IsHoldingObject() && brain != DropBrain) {
-            brainConfig = 2;
-        }
+        // if (robotArm.IsHoldingObject() && brain != DropBrain) {
+        //     brainConfig = 2;
+        // }
+        // if (!robotArm.IsHoldingObject() && brain == DropBrain) {
+        //     brainConfig = 1;
+        // }
 
         if (brainConfig != -1) {
             if (brainConfig == 1) {
