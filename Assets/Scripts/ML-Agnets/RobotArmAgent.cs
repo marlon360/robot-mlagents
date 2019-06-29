@@ -253,8 +253,21 @@ public class RobotArmAgent : Agent, ITrainable, IInferenceable {
     }
 
     public void ResetForInference() {
-        brainConfig = 3;
         HeldAlready = false;
+        robotArm.Reset ();
+        robotArm.StartRotation ();
+        SetupEvents ();
+        //transform.localPosition = Vector3.zero;
+        vehicle.transform.localPosition = new Vector3 (0, 0.15f, 0);
+        vehicle.transform.localEulerAngles = new Vector3 (0, 0, 0);
+        brainConfig = 1;
+    }
+
+    public void ResetForNextTarget() {
+        agentParameters.maxStep = GetStepCount() + 2000;
+        brainConfig = 1;
+        HeldAlready = false;
+        robotArm.Reset ();
         SetupEvents ();
     }
 
