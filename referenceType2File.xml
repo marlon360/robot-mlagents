@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTypeDate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TypeDate>
+    <guid>842f43ac94b4b4f72ac0898650ddcc44</guid>
+    <fileName>Assets/Cleaner/Editor/AssetCollector.cs</fileName>
+    <timeStamp>2015-12-09T19:51:26+01:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>805140a4856714e288ea84985d3023df</guid>
+    <fileName>Assets/Cleaner/Editor/AssetReferenceCollection.cs</fileName>
+    <timeStamp>2015-12-09T19:51:26+01:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>202c278a17939b24c8b79c0ee1f94d8f</guid>
+    <fileName>Assets/Cleaner/Editor/ClassReferenceCollection.cs</fileName>
+    <timeStamp>2015-12-09T19:51:26+01:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>0d05386265df34bac8d0b6df44aa494c</guid>
+    <fileName>Assets/Cleaner/Editor/CollectionData.cs</fileName>
+    <timeStamp>2015-12-09T19:51:26+01:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>74eec3bfba0594259ac2843353c082a3</guid>
+    <fileName>Assets/Cleaner/Editor/FindUnusedAssetsWindow.cs</fileName>
+    <timeStamp>2015-12-09T19:51:26+01:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>2c4f01a79a77a45a9a84004cc2b78098</guid>
+    <fileName>Assets/Cleaner/Editor/ShaderReferenceCollection.cs</fileName>
+    <timeStamp>2015-12-09T19:51:26+01:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>33eb6c0222cb2114cb9bd68e89207344</guid>
+    <fileName>Assets/Editor/MaskMaker.cs</fileName>
+    <timeStamp>2019-06-30T13:15:20.2931323+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>0fdb62d59ffacbd40be66f2bf0e37eb6</guid>
+    <fileName>Assets/Measured Materials Library/HDRP STACKLIT/Editor/HDRPVersionChecker.cs</fileName>
+    <timeStamp>2019-02-07T10:55:42+01:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>c3b291e1cd0c64781861652b579d0ac1</guid>
+    <fileName>Assets/ML-Agents/Editor/AgentEditor.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.52085+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>7b07bebd03994ed08559c725da882b62</guid>
+    <fileName>Assets/ML-Agents/Editor/BrainEditor.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5218463+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>b060ae8e687cf49bcae88b24db17bfa6</guid>
+    <fileName>Assets/ML-Agents/Editor/BrainParametersDrawer.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5228446+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>aa1bef9e5833447ab7251fc6f7a3a609</guid>
+    <fileName>Assets/ML-Agents/Editor/BroadcastHubDrawer.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5238422+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>84f9cd83f56c74790a51444a6cfe4945</guid>
+    <fileName>Assets/ML-Agents/Editor/DemonstrationDrawer.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5248383+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>7bd65ce151aaa4a41a45312543c56be1</guid>
+    <fileName>Assets/ML-Agents/Editor/DemonstrationImporter.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5258368+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>c3347a9ad704411896dd4898423c6515</guid>
+    <fileName>Assets/ML-Agents/Editor/HeuristicBrainEditor.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5268337+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>b538d92cc78b4a62a596822eca31423e</guid>
+    <fileName>Assets/ML-Agents/Editor/LearningBrainEditor.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5278319+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>83221ad3db87f4b3b91b041047cb2bc5</guid>
+    <fileName>Assets/ML-Agents/Editor/NNModelImporter.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5298262+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>0d99e43f78e54b4f96a346219e2ca2d2</guid>
+    <fileName>Assets/ML-Agents/Editor/PlayerBrainEditor.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5308236+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>740b9a60fe38f476ab020dcf91f3f94a</guid>
+    <fileName>Assets/ML-Agents/Editor/ResetParameterDrawer.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.531901+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>4c5a970f5b6be4b57b3bd7a5f84c3623</guid>
+    <fileName>Assets/ML-Agents/Editor/Tests/DemonstrationTests.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.531901+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>2e2810ee6c8c64fb39abdf04b5d17f50</guid>
+    <fileName>Assets/ML-Agents/Editor/Tests/EditModeTestActionMasker.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.531901+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>be419f7ed5c24b24a6f2636d3b107535</guid>
+    <fileName>Assets/ML-Agents/Editor/Tests/EditModeTestInternalBrainTensorApplier.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.531901+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>d2d2076c51c414ac7a91f8fbf15d4f7c</guid>
+    <fileName>Assets/ML-Agents/Editor/Tests/EditModeTestInternalBrainTensorGenerator.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.531901+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>3170fcbfa5f4d4a8ca82c50c750e9083</guid>
+    <fileName>Assets/ML-Agents/Editor/Tests/MLAgentsEditModeTest.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.531901+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>668f4ac2d83814df5a8883722633e4e5</guid>
+    <fileName>Assets/ML-Agents/Editor/Tests/MultinomialTest.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.531901+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>518c8e6e10fd94059a064ffbe65557af</guid>
+    <fileName>Assets/ML-Agents/Editor/Tests/RandomNormalTest.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.531901+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>29010426d01b4569830a85795f4f345b</guid>
+    <fileName>Assets/ML-Agents/Editor/Tests/RayPerceptionTests.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.531901+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>45ab7fc6851444d8ba622b4f63b8290b</guid>
+    <fileName>Assets/ML-Agents/Editor/Tests/UtilitiesTests.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.531901+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>75424b0c6afc14ea7a1debef68240d9e</guid>
+    <fileName>Assets/ML-Agents/Plugins/Barracuda.Core/Barracuda/Plugins/iOS/iOSBLAS.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5475235+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>680f04373f71f48a89408105d3f58a08</guid>
+    <fileName>Assets/ML-Agents/Plugins/Barracuda.Core/Barracuda/Plugins/OSX/MacBLAS.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.5475235+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>b1fc0029fee784d9cb9854f8912bfd07</guid>
+    <fileName>Assets/ML-Agents/Scripts/Academy.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8227292+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.EnvironmentConfiguration</string>
+      <string>MLAgents.Academy</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8a0ec4ccf4ee450da7766f65228d5460</guid>
+    <fileName>Assets/ML-Agents/Scripts/ActionMasker.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8237282+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.ActionMasker</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>88b6042bc9a5d4aa58d931eae49442e5</guid>
+    <fileName>Assets/ML-Agents/Scripts/Agent.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8247239+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.AgentInfo</string>
+      <string>MLAgents.AgentAction</string>
+      <string>MLAgents.AgentParameters</string>
+      <string>MLAgents.Agent</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>4243d5dc0ad5746cba578575182f8c17</guid>
+    <fileName>Assets/ML-Agents/Scripts/Batcher.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8267195+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.Batcher</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d1cf16abc39fb4d6ca81222fc73d1bb5</guid>
+    <fileName>Assets/ML-Agents/Scripts/BCTeacherHelper.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8257224+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.BCTeacherHelper</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c676a8ddf5a5f4f64b35e9ed5028679d</guid>
+    <fileName>Assets/ML-Agents/Scripts/Brain.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8277167+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.Brain</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6108a41e9be04c238d7babaed4476134</guid>
+    <fileName>Assets/ML-Agents/Scripts/BrainParameters.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8287142+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.SpaceType</string>
+      <string>MLAgents.Resolution</string>
+      <string>MLAgents.BrainParameters</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e43fd511c9f147e487d80e0bab3f6c6b</guid>
+    <fileName>Assets/ML-Agents/Scripts/BroadcastHub.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.829712+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.BroadcastHub</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>18600657fd7d241a199e6caf2ba7cceb</guid>
+    <fileName>Assets/ML-Agents/Scripts/Communicator.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.829712+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorParameters</string>
+      <string>MLAgents.Communicator</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>13e74744309fd4571b76e46fafc6d37f</guid>
+    <fileName>Assets/ML-Agents/Scripts/Decision.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.Decision</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b651f66c75a1646c6ab48de06d0e13ef</guid>
+    <fileName>Assets/ML-Agents/Scripts/Demonstration.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.Demonstration</string>
+      <string>MLAgents.DemonstrationMetaData</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>50f710d360a49461cad67ff5e6bcefe1</guid>
+    <fileName>Assets/ML-Agents/Scripts/DemonstrationRecorder.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.DemonstrationRecorder</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a79c7ccb2cd042b5b1e710b9588d921b</guid>
+    <fileName>Assets/ML-Agents/Scripts/DemonstrationStore.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.DemonstrationStore</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>943466ab374444748a364f9d6c3e2fe2</guid>
+    <fileName>Assets/ML-Agents/Scripts/HeuristicBrain.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.HeuristicBrain</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8b23992c8eb17439887f5e944bf04a40</guid>
+    <fileName>Assets/ML-Agents/Scripts/LearningBrain.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.InferenceDevice</string>
+      <string>MLAgents.LearningBrain</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e59a31a1cc2f5464d9a61bef0bc9a53b</guid>
+    <fileName>Assets/ML-Agents/Scripts/Monitor.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.Monitor</string>
+      <string>MLAgents.Monitor+DisplayType</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>41e9bda8f3cf1492fa74926a530f6f70</guid>
+    <fileName>Assets/ML-Agents/Scripts/PlayerBrain.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.PlayerBrain</string>
+      <string>MLAgents.PlayerBrain+DiscretePlayerAction</string>
+      <string>MLAgents.PlayerBrain+KeyContinuousPlayerAction</string>
+      <string>MLAgents.PlayerBrain+AxisContinuousPlayerAction</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>af19281a4c1dd47518ac7501c45eca9f</guid>
+    <fileName>Assets/ML-Agents/Scripts/ResetParameters.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.ResetParameters</string>
+      <string>MLAgents.ResetParameters+ResetParameter</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>57a3dc12d3b88408688bb490b65a838e</guid>
+    <fileName>Assets/ML-Agents/Scripts/RpcCommunicator.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.RPCCommunicator</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f0901c57c84a54f25aa5955165072493</guid>
+    <fileName>Assets/ML-Agents/Scripts/SocketCommunicator.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.SocketCommunicator</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e63e4a66d820245778f9a2abfa5b68e0</guid>
+    <fileName>Assets/ML-Agents/Scripts/UnityAgentsException.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.UnityAgentsException</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0e664c25f496478c9c26df6688379f7e</guid>
+    <fileName>Assets/ML-Agents/Scripts/Utilities.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.Utilities</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>4482f127d4a874cf8a11da2b2cc27dc9</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/AgentActionProto.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8317065+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.AgentActionProtoReflection</string>
+      <string>MLAgents.CommunicatorObjects.AgentActionProto</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>791522439b8324bff85f84309db90ecc</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/AgentInfoProto.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8327036+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.AgentInfoProtoReflection</string>
+      <string>MLAgents.CommunicatorObjects.AgentInfoProto</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>7b41acc4d406e4a3c94df3399b2a6471</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/BrainParametersProto.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.BrainParametersProtoReflection</string>
+      <string>MLAgents.CommunicatorObjects.BrainParametersProto</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6b2ff9fe2c38b4e79aba78908cc5492c</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/CommandProto.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.CommandProtoReflection</string>
+      <string>MLAgents.CommunicatorObjects.CommandProto</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a8d11b50ed9ce45f7827f5117b65db06</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/CustomAction.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.CustomActionReflection</string>
+      <string>MLAgents.CommunicatorObjects.CustomAction</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>896847c1364a7475d9094058ff93b7f0</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/CustomObservation.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.CustomObservationReflection</string>
+      <string>MLAgents.CommunicatorObjects.CustomObservation</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a071e48ae56b2424e8b59aad01646f59</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/CustomResetParameters.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.CustomResetParametersReflection</string>
+      <string>MLAgents.CommunicatorObjects.CustomResetParameters</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f7abfeda342414e059423ef90ede4c30</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/DemonstrationMetaProto.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.DemonstrationMetaProtoReflection</string>
+      <string>MLAgents.CommunicatorObjects.DemonstrationMetaProto</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2cebeb1263d7846b4b3c7c6e5d5e193f</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/EngineConfigurationProto.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.EngineConfigurationProtoReflection</string>
+      <string>MLAgents.CommunicatorObjects.EngineConfigurationProto</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>be8c5f75bdcff41488a8e85748541100</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/EnvironmentParametersProto.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.EnvironmentParametersProtoReflection</string>
+      <string>MLAgents.CommunicatorObjects.EnvironmentParametersProto</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8bb8aabfab48b408381733bccccd5af9</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/Header.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.HeaderReflection</string>
+      <string>MLAgents.CommunicatorObjects.Header</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>eae234f817240444a9d18b3d7366f260</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/ResolutionProto.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.ResolutionProtoReflection</string>
+      <string>MLAgents.CommunicatorObjects.ResolutionProto</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3e61637749b07412284363ff304da763</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/SpaceTypeProto.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.SpaceTypeProtoReflection</string>
+      <string>MLAgents.CommunicatorObjects.SpaceTypeProto</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>25e46cd9eca204e19a08fa938802ef9d</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/UnityInput.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.UnityInputReflection</string>
+      <string>MLAgents.CommunicatorObjects.UnityInput</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d270bf9ce3d564bb48b2095802c15ff9</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/UnityMessage.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.UnityMessageReflection</string>
+      <string>MLAgents.CommunicatorObjects.UnityMessage</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>5b7166f97831f45ef86df5eed0042240</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/UnityOutput.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.UnityOutputReflection</string>
+      <string>MLAgents.CommunicatorObjects.UnityOutput</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6c81750abd5a9432babe1834534122c0</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/UnityRlInitializationInput.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.UnityRlInitializationInputReflection</string>
+      <string>MLAgents.CommunicatorObjects.UnityRLInitializationInput</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f7ac9dd525a2246688054b2442eda28a</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/UnityRlInitializationOutput.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8337186+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.UnityRlInitializationOutputReflection</string>
+      <string>MLAgents.CommunicatorObjects.UnityRLInitializationOutput</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>24680ffa432734c09b4660d82303cbd2</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/UnityRlInput.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.UnityRlInputReflection</string>
+      <string>MLAgents.CommunicatorObjects.UnityRLInput</string>
+      <string>MLAgents.CommunicatorObjects.UnityRLInput+Types</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>af13b8fefefa74a948934dd273f94c4a</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/UnityRlOutput.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.UnityRlOutputReflection</string>
+      <string>MLAgents.CommunicatorObjects.UnityRLOutput</string>
+      <string>MLAgents.CommunicatorObjects.UnityRLOutput+Types</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>199e76fc828bc4561abad51402438e07</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/UnityToExternal.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.UnityToExternalReflection</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0378b2871a6c649f69c2f32d5c0fb045</guid>
+    <fileName>Assets/ML-Agents/Scripts/CommunicatorObjects/UnityToExternalGrpc.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CommunicatorObjects.UnityToExternal</string>
+      <string>MLAgents.CommunicatorObjects.UnityToExternal+UnityToExternalBase</string>
+      <string>MLAgents.CommunicatorObjects.UnityToExternal+UnityToExternalClient</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>99d5dc2d52e442d1a1f466a246cfb28d</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/ApplierImpl.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.InferenceBrain.ContinuousActionOutputApplier</string>
+      <string>MLAgents.InferenceBrain.DiscreteActionOutputApplier</string>
+      <string>MLAgents.InferenceBrain.BarracudaMemoryOutputApplier</string>
+      <string>MLAgents.InferenceBrain.MemoryOutputApplier</string>
+      <string>MLAgents.InferenceBrain.ValueEstimateApplier</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>399c5e92395a1484cb2808ac397745e1</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/BarracudaModelParamLoader.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>BarracudaUtils</string>
+      <string>MLAgents.InferenceBrain.BarracudaModelParamLoader</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c57a4989c7e54b93ab56293698d7d237</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/GeneratorImpl.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.InferenceBrain.BiDimensionalOutputGenerator</string>
+      <string>MLAgents.InferenceBrain.BatchSizeGenerator</string>
+      <string>MLAgents.InferenceBrain.SequenceLengthGenerator</string>
+      <string>MLAgents.InferenceBrain.VectorObservationGenerator</string>
+      <string>MLAgents.InferenceBrain.RecurrentInputGenerator</string>
+      <string>MLAgents.InferenceBrain.BarracudaRecurrentInputGenerator</string>
+      <string>MLAgents.InferenceBrain.PreviousActionInputGenerator</string>
+      <string>MLAgents.InferenceBrain.ActionMaskInputGenerator</string>
+      <string>MLAgents.InferenceBrain.RandomNormalInputGenerator</string>
+      <string>MLAgents.InferenceBrain.VisualObservationInputGenerator</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>259e3a0e37204794a885219327bd4c02</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/ModelParamLoader.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>fb1293e6d636b46d09ae35b36241a0c6</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/NNModel.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.InferenceBrain.NNModel</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>926149e757bc849689e00e12d8c6fbdb</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/Tensor.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.InferenceBrain.Tensor</string>
+      <string>MLAgents.InferenceBrain.Tensor+TensorType</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d1bef4f4ae72645108f16614355473e8</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/TensorApplier.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.InferenceBrain.TensorApplier</string>
+      <string>MLAgents.InferenceBrain.TensorApplier+Applier</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6a24e86bc77c4a5088a5fd04d6d30e81</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/TensorGenerator.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.InferenceBrain.TensorGenerator</string>
+      <string>MLAgents.InferenceBrain.TensorGenerator+Generator</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b28a46ea97c2445794d29d5a8a718a4a</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/TensorNames.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.InferenceBrain.TensorNames</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>120cbe3fa702f4e428f57ae1d893a0a7</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/TFSharpInferenceEngine.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8493411+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>5c9e297dad748408db9e5ce26b940fe3</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/Utils/Multinomial.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.InferenceBrain.Utils.Multinomial</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>df8528cf20f0e4c64a4a7596eccc1631</guid>
+    <fileName>Assets/ML-Agents/Scripts/InferenceBrain/Utils/RandomNormal.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.InferenceBrain.Utils.RandomNormal</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3d6f3eab3776b4fb79724ac4216dfd7b</guid>
+    <fileName>Assets/ML-Agents/SharedAssets/Scripts/AdjustTrainingTimescale.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8649624+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.AdjustTrainingTimescale</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>ec40c70d5160b47cd8deaab79e24892c</guid>
+    <fileName>Assets/ML-Agents/SharedAssets/Scripts/CameraFollow.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.CameraFollow</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>83d7b886385fb48b999bc3fbc41bc181</guid>
+    <fileName>Assets/ML-Agents/SharedAssets/Scripts/FlyCamera.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.FlyCamera</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2666e257ea992476cae0f7f163165e71</guid>
+    <fileName>Assets/ML-Agents/SharedAssets/Scripts/GroundContact.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.GroundContact</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>1b29724baddfa457da6eeab446fa49ca</guid>
+    <fileName>Assets/ML-Agents/SharedAssets/Scripts/JointDriveController.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.BodyPart</string>
+      <string>MLAgents.JointDriveController</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>67264e06e07fb40d8939b0860ebee773</guid>
+    <fileName>Assets/ML-Agents/SharedAssets/Scripts/RandomDecision.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.RandomDecision</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a14e2e238ae844231bc2c88e17bae5a5</guid>
+    <fileName>Assets/ML-Agents/SharedAssets/Scripts/RayPerception.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>RayPerception</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>59a9c4378bb2a40c49eb7a248c52fbf5</guid>
+    <fileName>Assets/ML-Agents/SharedAssets/Scripts/RayPerception2D.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.RayPerception2D</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>bb172294dbbcc408286b156a2c4b553c</guid>
+    <fileName>Assets/ML-Agents/SharedAssets/Scripts/RayPerception3D.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.RayPerception3D</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>5086c435d3e8b44ffa8262a5c124661f</guid>
+    <fileName>Assets/ML-Agents/SharedAssets/Scripts/TargetContact.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>MLAgents.TargetContact</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9af83cd96d4bc4088a966af174446d1b</guid>
+    <fileName>Assets/ML-Agents/Template/Scripts/TemplateAcademy.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>TemplateAcademy</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>33bb739f1138d40798114d667776a1d6</guid>
+    <fileName>Assets/ML-Agents/Template/Scripts/TemplateAgent.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>TemplateAgent</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>3812a852e739e44d7ab2ad777eeb0212</guid>
+    <fileName>Assets/ML-Agents/Template/Scripts/TemplateDecision.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.8805834+02:00</timeStamp>
+    <typeFullName>
+      <string>TemplateDecision</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c3799620a909740cc97c30ba41745cfc</guid>
+    <fileName>Assets/Scripts/CollsionDetection.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>CollsionDetection</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2cc941eee87ac43cd83e40be88f4ad44</guid>
+    <fileName>Assets/Scripts/Container.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>Container</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>bf75fe6940e1a4b8398fdd603c1a4f04</guid>
+    <fileName>Assets/Scripts/IInferenceable.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>IInferenceable</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>659cb35f1446445938726e511e88ed2d</guid>
+    <fileName>Assets/Scripts/ITrainable.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>ITrainable</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>ae11a8559b41a46478a22b9d1213937a</guid>
+    <fileName>Assets/Scripts/RobotGoal.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>RobotGoal</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a178ace1968014322b810769bd474502</guid>
+    <fileName>Assets/Scripts/RobotHand.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>RobotHand</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c664f61b196eb4abf8ff3d2e554a704e</guid>
+    <fileName>Assets/Scripts/TargetCollision.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>TargetCollision</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>fe89648aa72cc4cfaa184e7a4e954f65</guid>
+    <fileName>Assets/Scripts/Area/Area.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>Area</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>26a779190da324c34bc773966ec901d2</guid>
+    <fileName>Assets/Scripts/Area/DrivingCoopArea.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>DrivingCoopArea</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>785a67d8b5c704c709e5d03edf877c10</guid>
+    <fileName>Assets/Scripts/Area/DrivingInferenceArea.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>DrivingInferenceArea</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>4a202df951ff8438c94244071742b53b</guid>
+    <fileName>Assets/Scripts/Area/DrivingTainingArea.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>DrivingTainingArea</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>bc215fca7cced4537aaf79bd72d65b3c</guid>
+    <fileName>Assets/Scripts/Area/InferenceArea.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>InferenceArea</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>12c2c1f39a7ca475e86b460b5d65a0f7</guid>
+    <fileName>Assets/Scripts/Area/RobotArmArena.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>RobotArmArena</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c62789f9b353e4fa58fc816b5793bbb2</guid>
+    <fileName>Assets/Scripts/Area/RobotArmInferenceArea.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>RobotArmInferenceArea</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d934ed1a2419c445cb7e30917ab3089d</guid>
+    <fileName>Assets/Scripts/Area/TrainingArea.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>TrainingArea</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>353f35bac6a434a1fa1a3b0ceb4c316a</guid>
+    <fileName>Assets/Scripts/ML-Agnets/NoTargetHeuristic.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>NoTargetHeuristic</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e8c8068670a444a01a44360d710a82be</guid>
+    <fileName>Assets/Scripts/ML-Agnets/RobotArmAcademy.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>RobotArmAcademy</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>213f02fbbc05c4ad6a39dd6c4e1c7152</guid>
+    <fileName>Assets/Scripts/ML-Agnets/RobotArmAgent.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9199664+02:00</timeStamp>
+    <typeFullName>
+      <string>RobotBrainType</string>
+      <string>RobotArmAgent</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f059bdd0670794b7c9bba333a991b4de</guid>
+    <fileName>Assets/Scripts/RobotArm/RobotArm.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>RobotArm</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>165dab4374b1a4e30ad9d549c097d0ef</guid>
+    <fileName>Assets/Scripts/RobotArm/RobotArmController.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>RobotArmController</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d04f78dfa11f94f829f864a04399247d</guid>
+    <fileName>Assets/Scripts/utils/ResultLogger.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>ResultLogger</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8ba53c52b419c475f95575e4db28e867</guid>
+    <fileName>Assets/Scripts/Vehicle/Suspension.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>VehicleBehaviour.Suspension</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8ee5eaff062e2422d82eec410e2bfc74</guid>
+    <fileName>Assets/Scripts/Vehicle/VehicleAgent.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>VehicleAgent</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8ed3c69cfe5da4237b78476fcf097620</guid>
+    <fileName>Assets/Scripts/Vehicle/WheelVehicle.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>WheelVehicle</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+  <TypeDate>
+    <guid>6c82574f8cb9045598cb0d5ee5404048</guid>
+    <fileName>Assets/Scripts/Vehicle/WheelVehicleController.cs</fileName>
+    <timeStamp>2019-06-29T12:21:16.9355896+02:00</timeStamp>
+    <typeFullName>
+      <string>WheelVehicleController</string>
+    </typeFullName>
+    <assemblly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assemblly>
+  </TypeDate>
+</ArrayOfTypeDate>
