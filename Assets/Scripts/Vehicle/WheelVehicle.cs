@@ -139,7 +139,7 @@ public class WheelVehicle : MonoBehaviour {
                 wheel.motorTorque = 0.0001f;
                 wheel.brakeTorque = brakeForce;
             }
-        } else if (Mathf.Abs (speed) < 4 || Mathf.Sign (speed) == Mathf.Sign (throttle)) { // sign is 1 or -1
+        } else if (Mathf.Abs (speed) < 4 || Mathf.Sign (speed) == Mathf.Sign (throttle) || throttle == 0f) { // sign is 1 or -1
             foreach (WheelCollider wheel in driveWheel) {
                 wheel.motorTorque = throttle * motorTorque.Evaluate (speed);
             }

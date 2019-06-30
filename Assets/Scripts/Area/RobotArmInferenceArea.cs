@@ -20,7 +20,8 @@ public class RobotArmInferenceArea : InferenceArea {
     }
     
     private void InstantiateRandomGoal() {
-        GameObject Goal = Instantiate(GoalPrefabs[Random.Range(0, GoalPrefabs.Length)]);
+        int goalIndex = Random.Range(0, GoalPrefabs.Length);
+        GameObject Goal = Instantiate(GoalPrefabs[goalIndex]);
 
         Goal.GetComponent<Rigidbody> ().isKinematic = true;
         Goal.transform.parent = transform;

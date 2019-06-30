@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Coop.unity
+    guid: 9619cbf04bf8a4b4b9e3b77814decf04
+  - enabled: 1
+    path: Assets/Scenes/RobotArmInference.unity
+    guid: 863dbeac2b69c462995ee6280cc01bee
   m_configObjects: {}

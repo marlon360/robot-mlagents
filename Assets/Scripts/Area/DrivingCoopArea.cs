@@ -24,13 +24,13 @@ public class DrivingCoopArea : InferenceArea
             }
         };
         robotArmAgent.OnTargetDroppedSuccessfully = (Transform target) => {
-            target.GetComponentInParent<Rigidbody>().Sleep();
+            /* target.GetComponentInParent<Rigidbody>().Sleep();
             target.GetComponentInParent<Rigidbody>().transform.parent = transform;
             target.localPosition = new Vector3 (
                 Random.Range (-4f, 4f),
                 0f,
                 Random.Range (4f, 4f)
-            );
+            ); */
         };
     }
 
