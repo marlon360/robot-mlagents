@@ -18,12 +18,15 @@ public class RobotArm : MonoBehaviour {
     public GameObject holdingObject;
     private Transform holdingObjectParent;
     public Action OnHoldingObject;
+
+    // timer to delay holding and releasing an object from the hand
     private int holdingTimer = 101;
 
     public Action OnReleasingObject;
 
     public Action<Collision> OnCollision;
 
+    // Start Rotation/Position of each segment (for reset)
     private Vector3 BaseRotationStart;
     private Vector3 BasePositionStart;
     private Vector3 ShoulderRotationStart;
@@ -34,18 +37,17 @@ public class RobotArm : MonoBehaviour {
     private Vector3 LastElbowRotation;
     private Vector3 LastWristRotation;
 
-    private Boolean isColliding = false;
-
     // Start is called before the first frame update
     void Start () {
         
+        // save start position/rotation
         BaseRotationStart = Base.localRotation.eulerAngles;
         BasePositionStart = Base.localPosition;
         ShoulderRotationStart = Shoulder.localRotation.eulerAngles;
         ElbowRotationStart = Elbow.localRotation.eulerAngles;
         WristRotationStart = Wrist.localRotation.eulerAngles;
 
-        Vector3 com = new Vector3(0,2f,0);
+        // set center of mass for each segement        
         Base.GetComponent<Rigidbody>().centerOfMass = new Vector3(0,0f,0);
         Shoulder.GetComponent<Rigidbody>().centerOfMass = new Vector3(0,2f,0);
         Elbow.GetComponent<Rigidbody>().centerOfMass = new Vector3(0,2.6f,0);
@@ -62,7 +64,8 @@ public class RobotArm : MonoBehaviour {
         Base.GetComponent<Rigidbody>().Sleep();
         Base.localPosition = BasePositionStart;
     }
-
+    
+    // sets rotation to start rotation
     public void StartRotation() {
         Base.localEulerAngles = BaseRotationStart;
         Shoulder.localEulerAngles = ShoulderRotationStart;
@@ -70,6 +73,7 @@ public class RobotArm : MonoBehaviour {
         Wrist.localEulerAngles = WristRotationStart;
     }
 
+    // set a random rotation (for training)
     public void RandomRotation() {
         Base.localEulerAngles = new Vector3(0f, UnityEngine.Random.Range(0f, 360f), 0f);
         Shoulder.localEulerAngles = new Vector3(0f, 0f, UnityEngine.Random.Range(-30f, 30f));
@@ -77,38 +81,25 @@ public class RobotArm : MonoBehaviour {
         Wrist.localEulerAngles = new Vector3(0f, 0f, UnityEngine.Random.Range(-140f, 60f));
     }
 
-    public void Rotate (ref Quaternion rotation, Vector3 axis, float value) {
-        Vector3 eulerAngles = rotation.eulerAngles;
-        eulerAngles = eulerAngles + axis * value;
-        rotation.eulerAngles = eulerAngles;
-    }
-
     public void RotateBase (float value = 1f) {
-        //Rotate (ref RootRotation, transform.up, value);
+        // rotate base around y axis with torque
         Base.gameObject.GetComponent<Rigidbody> ().AddTorque (Base.up * 18f * value);
     }
-    // 359 - 12  1 - 12  359 - 372
+
     public void RotateShoulder (float value = 1f) {
-        // Vector3 eulerAngles = FirstArmRotation.eulerAngles;
-        // eulerAngles = eulerAngles + transform.forward * value;
-        // float difference1 = Mathf.Abs (eulerAngles.z - (FirstArmRotationStart.z + 360f));
-        // float difference2 = Mathf.Abs (eulerAngles.z - FirstArmRotationStart.z);
-        // float difference = Mathf.Min (difference1, difference2);
-        // if (difference < 90f) {
-        //     FirstArmRotation.eulerAngles = eulerAngles;
-        // }
+        // rotate shoulder around z axis with torque
         Shoulder.gameObject.GetComponent<Rigidbody> ().AddTorque (Shoulder.forward * 13f * value);
-        //Rotate (ref FirstArmRotation, transform.forward, value);
     }
     public void RotateElbow (float value = 1f) {
-        //Rotate (ref SecArmRotation, transform.forward, value);
+        // rotate elbow around z axis with torque
         Elbow.gameObject.GetComponent<Rigidbody> ().AddTorque (Elbow.forward * 18f * value);
     }
     public void RotateWrist (float value = 1f) {
-        //Rotate (ref WristRotation, transform.forward, value);
+        // rotate wrist around z axis with torque
         Wrist.gameObject.GetComponent<Rigidbody> ().AddTorque (Wrist.forward * 3f * value);
     }
 
+    // attach an object to hand
     public void HoldObject (GameObject target) {
         if (holdingTimer > 100) {
             holdingObject = target;
@@ -119,6 +110,8 @@ public class RobotArm : MonoBehaviour {
             if (OnHoldingObject != null) OnHoldingObject.Invoke ();
         }
     }
+
+    // detach the attached object
     public void ReleaseObject () {
         if (holdingObject != null) {
             holdingTimer = 0;
@@ -141,11 +134,8 @@ public class RobotArm : MonoBehaviour {
         if (holdingTimer <= 100) {
             holdingTimer++;
         }
-        //Root.localRotation = Quaternion.Lerp (Root.localRotation, RootRotation, speed * Time.fixedDeltaTime);
-        //FirstArm.localRotation = Quaternion.Lerp (FirstArm.localRotation, FirstArmRotation, speed * Time.fixedDeltaTime);
-        //SecArm.localRotation = Quaternion.Lerp (SecArm.localRotation, SecArmRotation, speed * Time.fixedDeltaTime);
-        //Wrist.localRotation = Quaternion.Lerp (Wrist.localRotation, WristRotation, speed * Time.fixedDeltaTime);
 
+        // sets rotation limits for each segment
         if (Wrist.localEulerAngles.z > 75f && Wrist.localEulerAngles.z < 205f) {
             Wrist.localEulerAngles = LastWristRotation;
         }
